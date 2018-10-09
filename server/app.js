@@ -29,7 +29,7 @@ const app = express();
 
 // Middleware Setup
 var whitelist = [
-  'http://localhost:3000'
+  'http://localhost:3001'
 ];
 var corsOptions = {
   origin: function(origin, callback){
@@ -85,8 +85,8 @@ app.locals.title = 'Express - Generated with IronGenerator';
 const authRouter = require('./routes/auth');
 const genericCrud = require('./routes/genericCRUD');
 app.use('/api/auth', authRouter);
-app.use('/api/news', genericCrud(require('./models/News')));
-app.use('/api/user', genericCrud(require('./models/User')));
+/* app.use('/api/news', genericCrud(require('./models/News')));
+ */app.use('/api/user', genericCrud(require('./models/User')));
 
 
 
