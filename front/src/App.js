@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
-
+import Profile from './sections/Profile';
 // import ProjectList from './components/projects/ProjectList';
-import Navbar from './components/navbar/Navbar';
+import Navbar from './components/Navbar';
 // import ProjectDetails from './components/projects/ProjectDetails';
-import Signup from './components/auth/Signup';
-import Login from './components/auth/Login';
-import AuthService from './components/auth/AuthService';
+import Signup from './auth/Signup';
+import Login from './auth/Login';
+import AuthService from './auth/AuthService';
+import HomePage from './sections/Home';
 // import Contents from './components/contents/Contents'
 
 class App extends Component {
@@ -65,8 +66,10 @@ class App extends Component {
             <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
           <header className="App-header">
             <Switch>
+              <Route exact path='/' render={() => <HomePage getUser={this.getTheUser}/>}/>
               <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
               <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/>
+              <Route path="/profile" component={Profile}></Route>
             </Switch>
           </header>
         </div>
