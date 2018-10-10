@@ -25,6 +25,6 @@ location: { type: { type: String }, coordinates: [Number] },
 
 
 //serviceSchema.set('timestamps', true);
-const Show = mongoose.model('Service', showSchema)
+const Show = mongoose.model('Show', showSchema)
 
-module.exports = Service;
+module.exports = Show;
