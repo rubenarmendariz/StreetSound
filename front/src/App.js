@@ -62,8 +62,8 @@ class App extends Component {
     } else {
       return (
         <div className="App">
-          <header className="App-header">
             <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
+          <header className="App-header">
             <Switch>
               <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
               <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/>
