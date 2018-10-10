@@ -84,7 +84,9 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 const authRouter = require('./routes/auth');
 const genericCrud = require('./routes/genericCRUD');
+const artistRouter = require('./routes/artist');
 app.use('/api/auth', authRouter);
+app.use('/api/artist', artistRouter);
 // app.use('/api/news', genericCrud(require('./models/News')));
 app.use('/api/user', genericCrud(require('./models/User')));
 

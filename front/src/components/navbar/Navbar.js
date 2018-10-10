@@ -25,7 +25,9 @@ class Navbar extends Component {
         <nav className="nav-style">
           <ul>
             <li><a onClick={this.handleLogout}>Cerrar sesion</a></li>
+            <Link to='/musicos'>Musicos
             <li><a onClick={this.handleLogout}>Mi Perfil</a></li>
+            </Link>
           </ul>
 
           <h2>Welcome, {this.state.loggedInUser.username}</h2>
@@ -34,26 +36,86 @@ class Navbar extends Component {
     } else {
       return (
         <div>
-          <nav className="nav-style">
+          {/* <nav className="nav-style">
             <ul>
+            <li><Link to='/musicos'>Musicos</Link></li>
             <li><Link to='/signup'>Signup</Link></li>
             <li><Link to='/login'>Login</Link></li>
             </ul>
-          </nav>
+          </nav> */}
+
+
+         <nav className="navbar" role="navigation" aria-label="main navigation">
+  <div className="navbar-brand">
+    <a className="navbar-item" href="https://bulma.io">
+      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"></img>
+    </a>
+
+    <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" className="navbar-menu">
+    <div className="navbar-start">
+    <Link to='/musicos'>Musicos</Link>
+      <p className="navbar-item">
+      
+      </p>
+
+      <a className="navbar-item">
+        Documentation
+      </a>
+
+      <div className="navbar-item has-dropdown is-hoverable">
+        <a className="navbar-link">
+          More
+        </a>
+
+        <div className="navbar-dropdown">
+          <a className="navbar-item">
+            About
+          </a>
+          <a className="navbar-item">
+            Jobs
+          </a>
+          <a className="navbar-item">
+            Contact
+          </a>
+          <hr className="navbar-divider"></hr>
+          <a className="navbar-item">
+            Report an issue
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div className="navbar-end">
+      <div className="navbar-item">
+        <div className="buttons">
+        
+        <Link to='/signup'>
+          <button className="button is-primary">
+            <strong>Sign up</strong>
+          </button>
+          </Link>
+          <Link to='/login'>
+          <button className="button is-light">
+            Log in
+          </button>
+          </Link>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+          
         </div>
 
-// import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
 
-// export default class Header extends Component {
-//     render() {
-//         return(
-//             <div className="navbar bg-info d-flex justify-content-center navbar-expand-lg">
-//                 <Link to="/"> <img src="https://image.flaticon.com/icons/svg/25/25694.svg" alt="" style={{height:"8vh"}}></img> </Link>
-//             </div>
-//         )
-//     }
-// }
       )
     }
   }

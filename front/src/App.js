@@ -8,6 +8,7 @@ import Navbar from './components/navbar/Navbar';
 import Signup from './components/auth/Signup';
 import Login from './components/auth/Login';
 import AuthService from './components/auth/AuthService';
+ import Musicos from './components/artist/Musicos.js'
 // import Contents from './components/contents/Contents'
 
 class App extends Component {
@@ -65,6 +66,7 @@ class App extends Component {
             <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
           <header className="App-header">
             <Switch>
+              <Route exact path='/musicos' render={() => <Musicos getUser={this.getTheUser}/>}/> 
               <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
               <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/>
             </Switch>
