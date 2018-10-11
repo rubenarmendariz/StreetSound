@@ -79,7 +79,8 @@ class App extends Component {
               <Route exact path='/musicos' render={() => <Musicos getUser={this.getTheUser}/>}/> 
               <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
               <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/>
-              <Route path="/profile" render={() => <Profile getUser={this.getTheUser}/>} ></Route>
+              <Route exact path ='/profile' render = {() => <Redirect to = "/" getUser={this.getTheUser}/>}/>
+              {/* <Route path="/profile" render={() => <Profile getUser={this.getTheUser}/>} ></Route> */}
             </Switch>
           </header>
         </div>
