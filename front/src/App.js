@@ -11,7 +11,6 @@ import AuthService from './auth/AuthService';
 import HomePage from './sections/Home';
 import Musicos from './components/artist/Musicos'
 // import Contents from './components/contents/Contents'
-import Musicos from './components/artist/Musicos'
 
 class App extends Component {
 
