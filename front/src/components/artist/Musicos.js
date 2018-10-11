@@ -87,7 +87,7 @@ search(val) {
               {/* ))} */}
             </div>
             <div className="col-8">
-            <SimpleMap></SimpleMap> {/* <Route path="/country/:cca3" component={CountryDetail} /> */}
+            <SimpleMap/> {/* <Route path="/country/:cca3" component={CountryDetail} /> */}
             </div>
           </div>
         </div>

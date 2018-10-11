@@ -37,7 +37,7 @@ class Navbar extends Component {
 <div>
 <nav className="navbar" role="navigation" aria-label="main navigation">
   <div className="navbar-brand">
-    <a className="navbar-item" href="https://bulma.io">
+    <a className="navbar-item" href="/">
       <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"></img>
     </a>
 
@@ -49,37 +49,8 @@ class Navbar extends Component {
   </div>
 
   <div id="navbarBasicExample" className="navbar-menu">
-    <div className="navbar-start">
+    <div className="navbar-item">
     <Link to='/musicos'>Musicos</Link>
-      <p className="navbar-item">
-      
-      </p>
-
-      <a className="navbar-item">
-        Documentation
-      </a>
-
-      <div className="navbar-item has-dropdown is-hoverable">
-        <a className="navbar-link">
-          More
-        </a>
-
-        <div className="navbar-dropdown">
-          <a className="navbar-item">
-            About
-          </a>
-          <a className="navbar-item">
-            Jobs
-          </a>
-          <a className="navbar-item">
-            Contact
-          </a>
-          <hr className="navbar-divider"></hr>
-          <a className="navbar-item">
-            Report an issue
-          </a>
-        </div>
-      </div>
     </div>
 
     <div className="navbar-end">
@@ -126,7 +97,7 @@ class Navbar extends Component {
 
          <nav className="navbar" role="navigation" aria-label="main navigation">
   <div className="navbar-brand">
-    <a className="navbar-item" href="https://bulma.io">
+    <a className="navbar-item" href="/">
       <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"></img>
     </a>
 
@@ -147,28 +118,6 @@ class Navbar extends Component {
       <a className="navbar-item">
     <Link to='/musicos'> Musicos</Link>
       </a>
-
-      <div className="navbar-item has-dropdown is-hoverable">
-        <a className="navbar-link">
-          More
-        </a>
-
-        <div className="navbar-dropdown">
-          <a className="navbar-item">
-            About
-          </a>
-          <a className="navbar-item">
-            Jobs
-          </a>
-          <a className="navbar-item">
-            Contact
-          </a>
-          <hr className="navbar-divider"></hr>
-          <a className="navbar-item">
-            Report an issue
-          </a>
-        </div>
-      </div>
     </div>
 
     <div className="navbar-end">
