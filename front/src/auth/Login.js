@@ -54,9 +54,9 @@ class Login extends Component {
           <label>Password:</label>
           <input type="password" name="password" value={this.state.password} onChange={e => this.handleChange(e)} />
         </fieldset>
-        <Link to='/musicos'>
+       
         <input type="submit" value="Login" />
-        </Link>
+        
       </form>
 
       <h1>{this.state.error ? 'Error' : ''}</h1>

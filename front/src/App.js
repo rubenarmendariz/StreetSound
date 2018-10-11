@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect} from 'react-router-dom';
 import Profile from './sections/Profile';
 // import ProjectList from './components/projects/ProjectList';
 import Navbar from './components/Navbar';
@@ -11,7 +11,6 @@ import AuthService from './auth/AuthService';
 import HomePage from './sections/Home';
 import Musicos from './components/artist/Musicos'
 // import Contents from './components/contents/Contents'
-import Musicos from './components/artist/Musicos'
 
 class App extends Component {
 
@@ -61,6 +60,8 @@ class App extends Component {
             <Route exact path='/musicos' render={() => <Musicos getUser={this.getTheUser}/>}/>
             <Route path="/profile" render={() => <Profile getUser={this.getTheUser}/>} ></Route>
             <Route exact path='/' render={() => <HomePage getUser={this.getTheUser}/>}/> 
+            <Route exact path ='/login' render = {() => <Redirect to = "/" getUser={this.getTheUser}/>}/>
+            <Route exact path ='/signup' render = {() => <Redirect to = "/" getUser={this.getTheUser}/>}/>
             {/* <Contents></Contents> */}
 
           </header>
