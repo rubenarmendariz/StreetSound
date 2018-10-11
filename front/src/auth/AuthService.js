@@ -8,6 +8,11 @@ class AuthService {
       withCredentials: true
     });
   }
+  newShow = (title, day, month, hour, latitude,longitude, description, genero) => {
+    
+    return this.service.post('/show-creation', {title, day, month, hour, latitude, longitude, description,genero})
+    .then(response => response.data)
+  }
 
   signup = (username, password, email, isArtist) => {
     console.log(isArtist)

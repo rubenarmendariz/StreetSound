@@ -4,6 +4,8 @@ import SingleProfile from '../components/SingleProfile';
 import AddButton from "../components/addPhoto";
 import EditButton from "../components/editButton"
 import DeleteButton from "../components/deleteButton"
+import AddPhotoPrueba from '../components/AddPhotoPrueba';
+import Show from '../components/AddShow';
 
 export default class Profile extends React.Component {
     constructor(props) {
@@ -28,6 +30,10 @@ export default class Profile extends React.Component {
                 <AddButton />
                 <EditButton />
                 <DeleteButton />
+                <Show/>
+                {/* <AddPhotoPrueba />
+                <h1>holaaaaa</h1>
+                <SingleProfile /> */}
             </div>
         )
     }
