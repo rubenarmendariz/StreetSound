@@ -3,6 +3,7 @@ const router  = express.Router();
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
 const passport = require('passport');
+const uploadCloud = require('../config/cloudinary.js');
 
 
 
@@ -13,6 +14,17 @@ User.find()
 })
 
 })
+
+router.post('/musicos', uploadCloud.single('picture'), (req, res, next) => {
+    User.findOneAndUpdate({}, { pictureUrl: req.file.url })
+      .then(() => {
+        res.json({
+          success: true,
+          pictureUrl: req.file.url
+        })
+      })
+  });
+  
 
 
 
