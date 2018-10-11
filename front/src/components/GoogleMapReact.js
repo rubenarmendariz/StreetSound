@@ -55,7 +55,7 @@ export default SimpleMap;
 // const K_HOVER_DISTANCE = 30;
 
 // @controllable(['center', 'zoom', 'markers'])
-//   class MainMapBlock extends Component {
+//   class SimpleMap extends Component {
 //   static propTypes = {
 //     onCenterChange: PropTypes.func, // @controllable generated fn
 //     onZoomChange: PropTypes.func, // @controllable generated fn

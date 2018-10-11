@@ -6,6 +6,7 @@ import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import 'bulma/css/bulma.css';
+import "bootstrap/dist/css/bootstrap.css";
 
 ReactDOM.render(<Router><App /></Router>, document.getElementById('root'));
 

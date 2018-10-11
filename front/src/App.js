@@ -9,6 +9,7 @@ import Signup from './auth/Signup';
 import Login from './auth/Login';
 import AuthService from './auth/AuthService';
 import HomePage from './sections/Home';
+import Musicos from './components/artist/Musicos'
 // import Contents from './components/contents/Contents'
 import Musicos from './components/artist/Musicos'
 
@@ -57,21 +58,27 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
+            <Route exact path='/musicos' render={() => <Musicos getUser={this.getTheUser}/>}/>
+            <Route path="/profile" render={() => <Profile getUser={this.getTheUser}/>} ></Route>
+            <Route exact path='/' render={() => <HomePage getUser={this.getTheUser}/>}/> 
             {/* <Contents></Contents> */}
+
           </header>
         </div>
       );
     } else {
       return (
         <div className="App">
-            <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
+            <Navbar />
+           
+          
           <header className="App-header">
             <Switch>
               <Route exact path='/' render={() => <HomePage getUser={this.getTheUser}/>}/>
               <Route exact path='/musicos' render={() => <Musicos getUser={this.getTheUser}/>}/> 
               <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
               <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/>
-              <Route path="/profile" component={Profile}></Route>
+              <Route path="/profile" render={() => <Profile getUser={this.getTheUser}/>} ></Route>
             </Switch>
           </header>
         </div>
