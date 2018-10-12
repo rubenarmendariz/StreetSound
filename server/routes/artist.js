@@ -17,8 +17,10 @@ User.find()
 
 })
 
-router.post('/profile', uploadCloud.single('picture'), (req, res, next) => {
+router.post('/profile', uploadCloud.single('photo'), (req, res, next) => {
+    console.log(req.file)
     User.findOneAndUpdate({}, { pictureUrl: req.file.url })
+
       .then(() => {
         res.json({
           success: true,

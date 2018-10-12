@@ -47,7 +47,7 @@ class Show extends Component {
             description:"",
             genero:""
           });
-        //   this.props.getUser(response.user)
+          this.props.getUser(response.user)
       })
       .catch( error => console.log(error) )
     }

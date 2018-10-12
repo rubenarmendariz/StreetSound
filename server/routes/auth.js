@@ -3,6 +3,8 @@ const router  = express.Router();
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
 const passport = require('passport');
+const Show = require('../models/Show')
+const uploadCloud = require('../config/cloudinary.js');
 
 
 const login = (req, user) => {
@@ -21,6 +23,49 @@ const login = (req, user) => {
   })
 }
 
+router.post('/show-creation', uploadCloud.single('photo'), (req, res, next) => {
+  console.log(req.body)
+
+  const {
+    title,
+    day,
+    month,
+    hour,
+    latitude,
+    longitude,
+    description,
+    genero,
+  } = req.body;
+  console.log(latitude, longitude)
+  const user = req.user.id;
+
+  const picPath = req.file ? req.file.url : "http://res.cloudinary.com/dz4mjhdbf/image/upload/v1537961966/folder-name/placeholder.jpg.jpg"
+  const picName = req.file ? req.file.originalname : "placeholder"
+
+  const newShow = new Show({
+    title,
+    user,
+    day,
+    month,
+    hour,
+    picPath,
+    picName,
+    description,
+    genero,
+    
+    location: { 
+      type: "Point",
+      coordinates: [Number(latitude), Number(longitude)]
+    }
+  })
+  newShow.save()
+  .then(show =>{
+      res.status(200).json(users)
+  })
+    .catch(error => {
+      console.log(error)
+    })
+});
 
 
 

@@ -49,9 +49,10 @@ class AddPhotoPrueba extends Component{
 
     filesUploadHandler = ()=>{
         const fd= new FormData();
-        fd.append('image', this.state.selectedFile, this.state.selectedFile.name)
+        console.log(this.state.selectedFile)
+        fd.append('photo', this.state.selectedFile, this.state.selectedFile.name)
         // axios.post("http://res.cloudinary.com/dz4mjhdbf/image/upload/v1537961966/folder-name/placeholder.jpg.jpg")
-        axios.post("http://res.cloudinary.com/dz4mjhdbf/image/upload/v1537961966/folder-name/placeholder.jpg.jpg", fd)
+        axios.post("http://localhost:3000/api/artist/profile", fd)
         .then(res=>{
             console.log(res)
         })
@@ -61,7 +62,7 @@ class AddPhotoPrueba extends Component{
     render(){
          return(
             <div>
-             <input type = "file" onChange = {this.filesSelectHandler}/>
+             <input type = "file" name = "photo" onChange = {this.filesSelectHandler}/>
              <button onClick = {this.filesUploadHandler}>upload</button>
          </div>
         
