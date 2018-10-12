@@ -1,7 +1,7 @@
 import geolocalize from './geolocalize'
 document.addEventListener('DOMContentLoaded', () => {
 
-    const map = new google.maps.Map(document.getElementById('map'), {
+    const map = new window.google.maps.Map(document.getElementById('map'), {
       zoom: 15,
     });
   
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     geolocalize().then(center => {
       map.setCenter(center);
-      marker = new google.maps.Marker({
+      marker = new window.google.maps.Marker({
         position: center,
         map: map
       });

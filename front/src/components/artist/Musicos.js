@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import SimpleMap from './../GoogleMapReact';
+// import SimpleMap from './../GoogleMapReact';
 import SingleProfile from '../SingleProfile';
  import SearchBar from "../SearchBar";
+//  import MyMap from "../maps/MyMap";
+ import Map from "../GoogleMapReact";
 
 export default class Musicos extends React.Component {
     constructor(){
@@ -56,7 +58,7 @@ search(val) {
                  
             </div>
             <div className="col-8">
-            <SimpleMap/> {/* <Route path="/country/:cca3" component={CountryDetail} /> */}
+            <Map/> {/* <Route path="/country/:cca3" component={CountryDetail} /> */}
             </div>
           </div>
         </div>

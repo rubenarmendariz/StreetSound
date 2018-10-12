@@ -65,15 +65,20 @@ class Show extends Component {
   
         <form onSubmit={this.handleFormSubmit}>
           <fieldset>
-            <label>title:</label>
-            <input type="text" name="title" value={this.state.title} onChange={e => this.handleChange(e)} />
+            <label>genero:</label>
+            <input type="text" name="genero" value={this.state.genero} onChange={e => this.handleChange(e)} />
           </fieldset>
   
           <fieldset>
             <label>description:</label>
             <input type="text" name="description" value={this.state.description} onChange={e => this.handleChange(e)} />
           </fieldset>
-         
+          <fieldset>
+          <label>Address</label>
+
+  <input id="lat-pos" type="" name="latitude" value={this.state.latitude} onChange={e => this.handleChange(e)} placeholder="Latitude" />
+  <input id="lng-pos" type="" name="longitude" value={this.state.longitude} onChange={e => this.handleChange(e)} placeholder="Longitude" />
+           </fieldset>
           <input type="submit" value="Login" />
           
         </form>

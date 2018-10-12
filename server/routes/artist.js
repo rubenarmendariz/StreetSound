@@ -85,14 +85,14 @@ router.post('/profile', uploadCloud.single('photo'), (req, res, next) => {
       description,
       genero,
       
-      location: { 
-        type: "Point",
-        coordinates: [Number(latitude), Number(longitude)]
-      }
+    //   location: { 
+    //     type: "Point",
+    //     coordinates: [Number(latitude), Number(longitude)]
+    //   }
     })
     newShow.save()
     .then(show =>{
-        res.status(200).json(users)
+        res.status(200).json(show)
     })
       .catch(error => {
         console.log(error)

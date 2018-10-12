@@ -36,7 +36,7 @@ router.post('/show-creation', uploadCloud.single('photo'), (req, res, next) => {
     description,
     genero,
   } = req.body;
-  console.log(latitude, longitude)
+   console.log(latitude, longitude)
   const user = req.user.id;
 
   const picPath = req.file ? req.file.url : "http://res.cloudinary.com/dz4mjhdbf/image/upload/v1537961966/folder-name/placeholder.jpg.jpg"
@@ -60,7 +60,7 @@ router.post('/show-creation', uploadCloud.single('photo'), (req, res, next) => {
   })
   newShow.save()
   .then(show =>{
-      res.status(200).json(users)
+      res.status(200).json(user)
   })
     .catch(error => {
       console.log(error)
