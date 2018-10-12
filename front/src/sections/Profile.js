@@ -31,9 +31,9 @@ export default class Profile extends React.Component {
                 <EditButton />
                 <DeleteButton />
                 <Show/>
-                {/* <AddPhotoPrueba />
+                 <AddPhotoPrueba />
                 <h1>holaaaaa</h1>
-                <SingleProfile /> */}
+                {/* <SingleProfile />  */}
             </div>
         )
     }
