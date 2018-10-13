@@ -1,166 +1,91 @@
-import React, { Component } from 'react';
-import GoogleMapReact from 'google-map-react';
+import React from 'react';
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+import './map.css';
 
-class SimpleMap extends Component {
-  static defaultProps = {
-    center: {
-      lat: 59.95,
-      lng: 30.33
-    },
-    zoom: 11
-  };
+export default class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      zoom: 13,
+      maptype: 'roadmap',
+      place_formatted: '',
+      place_id: '',
+      place_location: '',
+    };
+  }
+
+  componentDidMount() {
+    let map = new window.google.maps.Map(document.getElementById('map'), {
+      center: {lat: 3.8688, lng: 151.2195},
+      zoom: 13,
+      mapTypeId: 'roadmap',
+    });
+
+    map.addListener('zoom_changed', () => {
+      this.setState({
+        zoom: map.getZoom(),
+      });
+    });
+
+    map.addListener('maptypeid_changed', () => {
+      this.setState({
+        maptype: map.getMapTypeId(),
+      });
+    });
+
+    let marker = new window.google.maps.Marker({
+      map: map,
+      position: {lat: -33.8688, lng: 40.2195},
+    });
+
+    // initialize the autocomplete functionality using the #pac-input input box
+    let inputNode = document.getElementById('pac-input');
+    map.controls[window.google.maps.ControlPosition.TOP_LEFT].push(inputNode);
+    if (inputNode.value !== '' ) {
+      let autoComplete = new window.google.maps.places.Autocomplete(inputNode)
+
+      autoComplete.addListener('place_changed', () => {
+        let place = autoComplete.getPlace();
+        let location = place.geometry.location;
+  
+        this.setState({
+          place_formatted: place.formatted_address,
+          place_id: place.place_id,
+          place_location: location.toString(),
+        });
+  
+        // bring the selected place in view on the map
+        map.fitBounds(place.geometry.viewport);
+        map.setCenter(location);
+  
+        marker.setPlace({
+          placeId: place.place_id,
+          location: location,
+        });
+      });
+    };
+
+
+  }
 
   render() {
     return (
-      // Important! Always set the container height explicitly
-      <div style={{ height: '100vh', width: '100%' }}>
-        <GoogleMapReact
-          bootstrapURLKeys={{ key:"AIzaSyAipHldqlNVFFDnn3uPGera7sIh05RqRi8"}}
-          defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
-        >
-          <AnyReactComponent
-            lat={59.955413}
-            lng={30.337844}
-            text={'Kreyser Avrora'}
-          />
-        </GoogleMapReact>
+      <div id='app'>
+      <div id='state'>
+  <h1>State</h1>
+  <p>
+    Zoom level: {this.state.zoom}<br />
+    Map type: {this.state.maptype}
+    <p>Place: {this.state.place_formatted}</p>
+<p>Place ID: {this.state.place_id}</p>
+<p>Location: {this.state.place_location}</p>
+  </p>
+</div>
+<div id='pac-container'>
+  <input id='pac-input' type='text' placeholder='Enter a location' />
+</div>
+        <div id='map' />
       </div>
     );
   }
-}
-
-export default SimpleMap;
-
-// import React, {PropTypes, Component} from 'react/addons';
-// import controllable from 'react-controllables';
-// import shouldPureComponentUpdate from 'react-pure-render/function';
-
-// import GoogleMap from 'google-map-react';
-// import MarkerExample, {K_SCALE_NORMAL} from './marker_example.jsx';
-
-// import {getScale, getRealFromTo} from '../helpers/calc_markers_visibility.js';
-// import markerDescriptions from '../constants/marker_descriptions.js';
-// import {customDistanceToMouse} from '../helpers/custom_distance.js';
-
-// import {List} from 'immutable';
-
-// const K_MARGIN_TOP = 30;
-// const K_MARGIN_RIGHT = 30;
-// const K_MARGIN_BOTTOM = 30;
-// const K_MARGIN_LEFT = 30;
-
-// const K_HOVER_DISTANCE = 30;
-
-// @controllable(['center', 'zoom', 'markers'])
-//   class SimpleMap extends Component {
-//   static propTypes = {
-//     onCenterChange: PropTypes.func, // @controllable generated fn
-//     onZoomChange: PropTypes.func, // @controllable generated fn
-//     onBoundsChange: PropTypes.func,
-//     onMarkerHover: PropTypes.func,
-//     onChildClick: PropTypes.func,
-//     center: PropTypes.any,
-//     zoom: PropTypes.number,
-//     markers: PropTypes.any,
-//     visibleRowFirst: PropTypes.number,
-//     visibleRowLast: PropTypes.number,
-//     maxVisibleRows: PropTypes.number,
-//     hoveredRowIndex: PropTypes.number,
-//     openBallonIndex: PropTypes.number
-//   }
-
-//   static defaultProps = {
-//     center: new List([59.744465, 30.042834]),
-//     zoom: 10,
-//     visibleRowFirst: -1,
-//     visibleRowLast: -1,
-//     hoveredRowIndex: -1
-//   }
-
-//   shouldComponentUpdate = shouldPureComponentUpdate;
-
-//   constructor(props) {
-//     super(props);
-//   }
-
-//   _onBoundsChange = (center, zoom, bounds, marginBounds) => {
-//     if (this.props.onBoundsChange) {
-//       this.props.onBoundsChange({center, zoom, bounds, marginBounds});
-//     } else {
-//       this.props.onCenterChange(center);
-//       this.props.onZoomChange(zoom);
-//     }
-//   }
-
-//   _onChildClick = (key, childProps) => {
-//     const markerId = childProps.marker.get('id');
-//     const index = this.props.markers.findIndex(m => m.get('id') === markerId);
-//     if (this.props.onChildClick) {
-//       this.props.onChildClick(index);
-//     }
-//   }
-
-//   _onChildMouseEnter = (key, childProps) => {
-//     const markerId = childProps.marker.get('id');
-//     const index = this.props.markers.findIndex(m => m.get('id') === markerId);
-//     if (this.props.onMarkerHover) {
-//       this.props.onMarkerHover(index);
-//     }
-//   }
-
-//   _onChildMouseLeave = (/* key, childProps */) => {
-//     if (this.props.onMarkerHover) {
-//       this.props.onMarkerHover(-1);
-//     }
-//   }
-
-//   _onBalloonCloseClick = () => {
-//     if (this.props.onChildClick) {
-//       this.props.onChildClick(-1);
-//     }
-//   }
-
-//   _distanceToMouse = customDistanceToMouse;
-
-//   render() {
-//     const {rowFrom, rowTo} = getRealFromTo(this.props.visibleRowFirst, this.props.visibleRowLast, this.props.maxVisibleRows, this.props.markers.size);
-
-//     const Markers = this.props.markers &&
-//       this.props.markers.filter((m, index) => index >= rowFrom && index <= rowTo)
-//       .map((marker, index) => (
-//         <MarkerExample
-//           // required props
-//           key={marker.get('id')}
-//           lat={marker.get('lat')}
-//           lng={marker.get('lng')}
-//           // any user props
-//           showBallon={index + rowFrom === this.props.openBallonIndex}
-//           onCloseClick={this._onBalloonCloseClick}
-//           hoveredAtTable={index + rowFrom === this.props.hoveredRowIndex}
-//           scale={getScale(index + rowFrom, this.props.visibleRowFirst, this.props.visibleRowLast, K_SCALE_NORMAL)}
-//           {...markerDescriptions[marker.get('type')]}
-//           marker={marker} />
-//       ));
-
-//     return (
-//       <GoogleMap
-//         // apiKey={null}
-//         center={this.props.center.toJS()}
-//         zoom={this.props.zoom}
-//         onBoundsChange={this._onBoundsChange}
-//         onChildClick={this._onChildClick}
-//         onChildMouseEnter={this._onChildMouseEnter}
-//         onChildMouseLeave={this._onChildMouseLeave}
-//         margin={[K_MARGIN_TOP, K_MARGIN_RIGHT, K_MARGIN_BOTTOM, K_MARGIN_LEFT]}
-//         hoverDistance={K_HOVER_DISTANCE}
-//         distanceToMouse={this._distanceToMouse}
-//         >
-//         {Markers}
-//       </GoogleMap>
-//     );
-//   }
-// }
-// export default MainMapBlock;
+};

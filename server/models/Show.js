@@ -3,9 +3,9 @@ const Schema   = mongoose.Schema;
 
 const showSchema = new Schema ({
 title: String,
-day: Number,
+day: String,
 month:String,
-year: Number,
+year: String,
 hour: String,
 user: {type : Schema.Types.ObjectId, ref: 'User'},
 description: String,

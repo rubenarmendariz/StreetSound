@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
-//import Marker from 'google-map-react';
+// import Marker from 'google-map-react';
 import geolocalize from './geolocalize'
 
  
@@ -58,7 +58,7 @@ class SimpleMap extends Component {
       // Important! Always set the container height explicitly
       <div style={{ height: '50vh', width: '100%' }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: 'AIzaSyCRIT2iw6rPE6wpIGJK2jfCsKYmMcEXfUc'}}
+          bootstrapURLKeys={{ key: 'AIzaSyAipHldqlNVFFDnn3uPGera7sIh05RqRi8'}}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
           onClick={this.onClick}
