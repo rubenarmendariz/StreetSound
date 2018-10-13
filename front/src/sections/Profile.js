@@ -33,6 +33,9 @@ export default class Profile extends React.Component {
                 <Show/>
                  <AddPhotoPrueba />
                 <h1>holaaaaa</h1>
+                <SingleProfile /> }
+
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/o_aJjLXY-HU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 {/* <SingleProfile />  */}
             </div>
         )
