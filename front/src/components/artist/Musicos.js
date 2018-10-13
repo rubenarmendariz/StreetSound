@@ -12,6 +12,7 @@ export default class Musicos extends React.Component {
         this.state = {
             artistList:[],
             
+            
         }
     }
     componentWillMount(){

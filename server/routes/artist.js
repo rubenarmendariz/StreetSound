@@ -29,28 +29,6 @@ router.post('/profile', uploadCloud.single('photo'), (req, res, next) => {
     })
 });
 
-// router.get(`/profile`, (req, res, next) => {
-//   res.status(200).json({user:req.user});
-
-//   })
-
-
-// router.post('/profile', uploadCloud.single('picture'), (req, res, next) => {
-//     const picPath = req.file ? req.file.url : "http://res.cloudinary.com/dz4mjhdbf/image/upload/v1537961966/folder-name/placeholder.jpg.jpg"
-//   const picName = req.file ? req.file.originalname : "placeholder"
-//   const newShow = new Show({
-//     picPath,
-//     picName
-//   })
-//   newShow.save()
-//   .then(() => {
-//             res.json({
-//               success: true,
-//               pictureUrl: req.file.url
-//             })
-//           })
-
-//   });
 
 
 
@@ -119,9 +97,6 @@ router.get("/profile/:id", (req, res, next) => {
     })
 });
 
-router.post(("/newvideo", (res, req, next) => {
-  User.findByIdAndUpdate(req.user._id, { $push: { addVideo: req.body.newUrl } }, { new: true })
-    .then(user => res.json({ videos: user.addVideo }))
-}))
+
 
 module.exports = router;

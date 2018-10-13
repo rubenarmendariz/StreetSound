@@ -132,6 +132,15 @@ router.get('/logout', (req,res) => {
   res.status(200).json({message:'logged out'})
 });
 
+router.post("/newVideo", (req, res, next) => {
+  const url = req.body.url;
+  User.findByIdAndUpdate(req.user._id, { $push: { addVideo: url } }, { new: true })
+    .then(user => res.json({ videos: user.addVideo }))
+    .catch(err => {
+      console.log(err)
+    })
+})
+
 
 router.use((err, req, res, next) => {
   res.status(500).json({ message: err.message });
