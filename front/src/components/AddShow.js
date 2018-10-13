@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 // import SimpleMap from './../GoogleMapReact';
 import AuthService from '../auth/AuthService';
-
+import Artist from '../auth/Artist';
 class Show extends Component {
     constructor(props) {
       super(props);
@@ -17,7 +17,7 @@ class Show extends Component {
            genero:''
         
         };
-        this.service = new AuthService();
+        this.route = new Artist();
       ;
     }
   
@@ -35,7 +35,7 @@ class Show extends Component {
 
 
 
-      this.service.newShow(title, day, month, hour,latitude,longitude,description, genero)
+      this.route.newShow(title, day, month, hour,latitude,longitude,description, genero)
       .then( response => {
           this.setState({
             title: "", 

@@ -55,6 +55,20 @@ router.post('/profile', uploadCloud.single('photo'), (req, res, next) => {
     })
   })
 
+  router.post('/profile/:id',ensureAuthenticated, (req, res, next) => {
+    console.log("entra")
+    const { name, email, username} = req.body;
+    User.findOneAndUpdate ({'_id': req.params.id}, { $set: { name, email, username}})
+    .then((data) => {
+      res.status(200).json(data)
+    })
+   
+    .catch(next)
+  });
+
+
+  
+
   router.post('/show-creation', uploadCloud.single('photo'), (req, res, next) => {
     console.log(req.body)
   
