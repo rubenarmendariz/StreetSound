@@ -8,8 +8,7 @@ import AddPhotoPrueba from '../components/AddPhotoPrueba';
 import Show from '../components/AddShow';
 import SelectGenero from '../components/genereButton'
 import VideoList from '../components/videoList';
-
-
+import User from '../components/editPrueba';
 export default class Profile extends React.Component {
     constructor(props) {
         super(props);
@@ -31,7 +30,7 @@ export default class Profile extends React.Component {
                 <VideoList /><p>add video</p>
                 <AddButton /><p>add photo</p>
                 <AddButton /><p>add event</p>
-                <EditButton />
+                {/* <EditButton /> */}
                 <DeleteButton />
                 <Show/>
                  <AddPhotoPrueba />

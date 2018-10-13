@@ -15,5 +15,14 @@ class Artist {
       }
 
 
+     editUser = (name, username, email, genero, id) =>{
+        
+         console.log(id)
+         return this.route.post(`/profile/${id}/edit`, {name, username,email, genero})
+         .then(response =>console.log(response))
+    
+     }
+
+
 }
 export default Artist;
