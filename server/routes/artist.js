@@ -64,10 +64,14 @@ router.get("/profile/:id", (req, res, next) => {
 
 
 
-  router.post('/profile/:id',ensureAuthenticated, (req, res, next) => {
-    console.log("entra")
-    const { name, email, username} = req.body;
-    User.findOneAndUpdate ({'_id': req.params.id}, { $set: { name, email, username}})
+  router.post('/profile/:id/edit',ensureAuthenticated, (req, res, next) => {
+    console.log("entroooooooo123453");
+    let {id} =req.user;
+    console.log({id})
+    const { name, email, username, genero} = req.body;
+    // const picProfilePath = req.file ? req.file.url : "http://res.cloudinary.com/dz4mjhdbf/image/upload/v1537961966/folder-name/placeholder.jpg.jpg"
+    // const picProfileName = req.file ? req.file.originalname : "placeholder"
+    User.findByIdAndUpdate ( id, { $set: { name, email, username, genero}})
     .then((data) => {
       res.status(200).json(data)
     })
@@ -94,8 +98,8 @@ router.get("/profile/:id", (req, res, next) => {
     console.log(latitude, longitude)
     const user = req.user.id;
   
-    const picPath = req.file ? req.file.url : "http://res.cloudinary.com/dz4mjhdbf/image/upload/v1537961966/folder-name/placeholder.jpg.jpg"
-    const picName = req.file ? req.file.originalname : "placeholder"
+    const picProfilePath = req.file ? req.file.url : "http://res.cloudinary.com/dz4mjhdbf/image/upload/v1537961966/folder-name/placeholder.jpg.jpg"
+    const picProfileName = req.file ? req.file.originalname : "placeholder"
   
     const newShow = new Show({
       title,
@@ -103,8 +107,8 @@ router.get("/profile/:id", (req, res, next) => {
       day,
       month,
       hour,
-      picPath,
-      picName,
+      picProfilePath,
+      picProfileName,
       description,
       genero,
       
