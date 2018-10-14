@@ -3,7 +3,7 @@ import axios from 'axios';
 // import SimpleMap from './../GoogleMapReact';
 // import AuthService from '../auth/AuthService';
 import Artist from '../auth/Artist';
-import EditButton from '../components/editButton';
+import AddPhotoPrueba from '../components/AddPhotoPrueba'
 class User extends Component {
     constructor(props) {
       super(props);
@@ -57,7 +57,7 @@ class User extends Component {
     
   
     render() {
-  
+      var el = document.getElementsByClassName('modal');
       return (
       <div>
        
@@ -83,9 +83,13 @@ class User extends Component {
             <label>email:</label>
             <input type="text" name="email" value={this.state.email} onChange={e => this.handleChange(e)} />
           </fieldset>
-  
+          <AddPhotoPrueba />
+          <footer class="modal-card-foot">
+            <button type ="submit" value= "login" onClick={()=>el[0].classList.toggle('is-active')}class="button is-success">Save changes</button>
+            <button onClick={()=>el[0].classList.toggle('is-active')} class="button">Cancel</button>
+          </footer>
           
-          <input type="submit" value="Login" />
+          {/* <button  type="submit" value="Login" /> */}
           
         </form>
   
@@ -93,7 +97,7 @@ class User extends Component {
 
       {/* <EditButton></EditButton> */}
 
-<h1>ohciufehqwfucoweui</h1>
+
       </div>
       )
     }

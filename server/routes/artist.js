@@ -90,10 +90,10 @@ router.get("/profile/:id", (req, res, next) => {
       description,
       genero,
       
-    //   location: { 
-    //     type: "Point",
-    //     coordinates: [Number(latitude), Number(longitude)]
-    //   }
+      location: { 
+        type: "Point",
+        coordinates: [Number(latitude), Number(longitude)]
+      }
     })
     newShow.save()
     .then(show =>{
