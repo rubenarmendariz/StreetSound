@@ -2,7 +2,7 @@ import React from 'react';
 // import axios from 'axios';
 import SingleProfile from '../components/SingleProfile';
 import AddButton from "../components/addPhoto";
-// import EditButton from "../components/editButton"
+import EditButton from "../components/editButton"
 import DeleteButton from "../components/buttons/deleteButton"
 // import AddPhotoPrueba from '../components/AddPhotoPrueba';
 import Show from '../components/AddShow';
@@ -29,7 +29,7 @@ export default class Profile extends React.Component {
                 <VideoList /><p>add video</p>
                 <AddButton /><p>add photo</p>
                 <AddButton /><p>add event</p>
-                {/* <EditButton /> */}
+                <EditButton />
                 <DeleteButton />
                 <Show/>
                 <CardPhoto />

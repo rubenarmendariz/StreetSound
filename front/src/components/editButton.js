@@ -7,6 +7,7 @@ import AddPhotoPrueba from '../components/AddPhotoPrueba';
 import classNames from 'classnames';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
+import User from '../components/editPrueba'
 
 
 const styles = theme => ({
@@ -45,6 +46,8 @@ function FloatingActionButtons(props) {
 
         <Icon>edit_icon</Icon>
       </button>
+
+
       <div class="modal">
         <div class="modal-background"></div>
         <div class="modal-card">
@@ -53,7 +56,8 @@ function FloatingActionButtons(props) {
             <button onClick={()=>el[0].classList.toggle('is-active')} class="delete" aria-label="close"></button>
           </header>
           <section class="modal-card-body">
-          <TextField
+          <User></User>
+          {/* <TextField
           id="outlined-name"
           label="Name"
           className={classes.textField}
@@ -97,13 +101,13 @@ function FloatingActionButtons(props) {
           // onChange={this.handleChange('name')}
           margin="normal"
           variant="outlined"
-        />
-        <AddPhotoPrueba />
+        /> */}
+        
           </section>
-          <footer class="modal-card-foot">
+          {/* <footer class="modal-card-foot">
             <button onClick={()=>console.log('saving')}class="button is-success">Save changes</button>
             <button onClick={()=>el[0].classList.toggle('is-active')} class="button">Cancel</button>
-          </footer>
+          </footer> */}
         </div>
       </div>
     </div>
@@ -115,4 +119,5 @@ FloatingActionButtons.propTypes = {
 };
 
 export default withStyles(styles)(FloatingActionButtons);
+
 
