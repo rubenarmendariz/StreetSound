@@ -4,6 +4,8 @@ import axios from 'axios';
 // import AuthService from '../auth/AuthService';
 import Artist from '../auth/Artist';
 import EditButton from '../components/editButton';
+import AddPhotoPrueba from '../components/AddPhotoPrueba';
+
 class User extends Component {
     constructor(props) {
       super(props);
@@ -83,7 +85,7 @@ class User extends Component {
             <label>email:</label>
             <input type="text" name="email" value={this.state.email} onChange={e => this.handleChange(e)} />
           </fieldset>
-  
+          {/* <AddPhotoPrueba /> */}
           
           <input type="submit" value="Login" />
           

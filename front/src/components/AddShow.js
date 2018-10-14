@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 // import SimpleMap from './../GoogleMapReact';
-import AuthService from '../auth/AuthService';
+// import AuthService from '../auth/AuthService';
 import Artist from '../auth/Artist';
 class Show extends Component {
     constructor(props) {
@@ -11,8 +11,8 @@ class Show extends Component {
            day: '',
            month:'',
            hour:'',
-           latitude: Number,
-           longitude: Number,
+           latitude: 0,
+           longitude: 0,
            description:'',
            genero:''
         

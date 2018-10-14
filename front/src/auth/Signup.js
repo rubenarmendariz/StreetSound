@@ -1,7 +1,7 @@
 // auth/Signup.js
 import React, { Component } from 'react';
 import AuthService from './AuthService'
-import { isBoolean } from 'util';
+// import { isBoolean } from 'util';
 
 class Signup extends Component {
   constructor(props){

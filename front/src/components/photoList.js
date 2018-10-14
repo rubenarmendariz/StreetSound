@@ -6,54 +6,54 @@ import AuthService from '../auth/AuthService';
 
 
 
-export default class VideoList extends React.Component {
+export default class PhotoList extends React.Component {
     constructor() {
         super();
         this.state = {
-            videoList: null,
+            photoList: null,
         }
         this.service = new AuthService();
     }
 
 
-    createNewVideo = (event) => {
+    createNewPhoto = (event) => {
         event.preventDefault();
-        const video = this.state.url;
-        this.service.newVideo(video)
+        const photo = this.state.url;
+        this.service.newPhoto(photo)
             .then(res => {
             })
     }
 
     componentWillMount() {
-        this.fetchVideos();
+        this.fetchPhotos();
     }
 
-    fetchVideos() {
+    fetchPhotos() {
 
         axios.get(`http://localhost:3000/api/artist/profile/${this.props.userId}`)
             .then(arr => {
                 console.log(arr)
-                this.setState({ videoList: arr.data })
+                this.setState({ PhotoList: arr.data })
             })
             .catch(e => console.log(e));
     };
 
 
     render() {
-        this.fetchVideos();
+        this.fetchPhotos();
         
         return (
 
-            this.state.videoList ?
+            this.state.PhotoList ?
                 <div>
-                    {this.state.videoList.map(video => <CardVideo {...video} key={video._id} url={video} />)}
+                    {this.state.photoList.map(photo => <CardVideo {...photo} key={photo._id} />)}
                 </div>
 
                 :
                 
-                <form onSubmit={this.createNewVideo}>
+                <form onSubmit={this.createNewPhoto}>
                     <div><button type="submit">Submit</button></div>
-                    <input type="text" name="linkVideo" onChange={e => this.setState({ url: e.currentTarget.value })} />
+                    <input type="text" name="linkPhoto" onChange={e => this.setState({ url: e.currentTarget.value })} />
                 </form>
         )
     }

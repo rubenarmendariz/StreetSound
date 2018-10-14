@@ -1,14 +1,16 @@
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import SingleProfile from '../components/SingleProfile';
 import AddButton from "../components/addPhoto";
-import EditButton from "../components/editButton"
-import DeleteButton from "../components/deleteButton"
-import AddPhotoPrueba from '../components/AddPhotoPrueba';
+// import EditButton from "../components/editButton"
+import DeleteButton from "../components/buttons/deleteButton"
+// import AddPhotoPrueba from '../components/AddPhotoPrueba';
 import Show from '../components/AddShow';
 import SelectGenero from '../components/genereButton'
 import VideoList from '../components/videoList';
 import User from '../components/editPrueba';
+import CardPhoto from '../components/cardPhoto';
+
 export default class Profile extends React.Component {
     constructor(props) {
         super(props);
@@ -19,12 +21,9 @@ export default class Profile extends React.Component {
         }
     };
     render() {
-
         return (
             <div>
-
                 <img src="#" alt="foto de perfil" />
-
                 <h1>Este es mi Perfil</h1>
                 <SingleProfile />
                 <VideoList /><p>add video</p>
@@ -33,11 +32,12 @@ export default class Profile extends React.Component {
                 {/* <EditButton /> */}
                 <DeleteButton />
                 <Show/>
-                 <AddPhotoPrueba />
+                <CardPhoto />
                 <h1>holaaaaa</h1>
                 <SingleProfile /> 
                 <SelectGenero />
                 <VideoList></VideoList>
+                <User></User>
                 {/* <SingleProfile />  */}
             </div>
         )

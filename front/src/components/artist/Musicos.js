@@ -6,7 +6,7 @@ import SingleProfile from '../SingleProfile';
 //  import MyMap from "../maps/MyMap";
  import Map from "../GoogleMapReact";
 
-export default class Musicos extends React.Component {
+export default class Musicos extends Component {
     constructor(){
         super();
         this.state = {

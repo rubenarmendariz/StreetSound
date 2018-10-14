@@ -115,9 +115,9 @@ class Navbar extends Component {
       
       </p>
 
-      <a className="navbar-item">
-    <Link to='/musicos'> Musicos</Link>
-      </a>
+      
+    <Link className="navbar-item" to='/musicos'> Musicos</Link>
+      
     </div>
 
     <div className="navbar-end">

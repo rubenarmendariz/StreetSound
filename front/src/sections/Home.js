@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import AuthService from '../auth/AuthService';
+// import { Link } from 'react-router-dom';
+// import AuthService from '../auth/AuthService';
 
 export default class HomePage extends Component {
     render() {
