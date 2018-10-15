@@ -1,5 +1,5 @@
 import React from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import SingleProfile from '../components/SingleProfile';
 import AddButton from "../components/addPhoto";
 import EditButton from "../components/editButton"
@@ -14,19 +14,39 @@ import CardPhoto from '../components/cardPhoto';
 export default class Profile extends React.Component {
     constructor(props) {
         super(props);
+        console.log(this.props)
         this.state = {
+            user:null,
             videoList: []
-            
-
         }
     };
+
+    componentWillMount() {
+        this.fetchProfile();
+    }
+
+    fetchProfile() {
+
+        axios.get(`http://localhost:3000/api/artist/profile/${this.props.match.params.id}`)
+            .then(arr => {
+                console.log(arr.data)
+                this.setState({user: {...arr.data} })
+            })
+            .catch(e => console.log(e));
+    };
+
+
+
+
     render() {
+        console.log(this.props);
         return (
+            this.state.user ? 
             <div>
-                <img src="#" alt="foto de perfil" />
-                <h1>Este es mi Perfil</h1>
+                <img src={this.state.user.PicProfilePath} alt="foto de perfil" />
+                <h1>Este es mi Perfil {this.state.user.username}</h1>
                 <SingleProfile />
-                <VideoList /><p>add video</p>
+                <VideoList {...this.state.user}/><p>add video</p>
                 <AddButton /><p>add photo</p>
                 <AddButton /><p>add event</p>
                 <EditButton />
@@ -36,10 +56,11 @@ export default class Profile extends React.Component {
                 <h1>holaaaaa</h1>
                 <SingleProfile /> 
                 <SelectGenero />
-                <VideoList></VideoList>
-                <User></User>
-                {/* <SingleProfile />  */}
+                
+                <User/>
+                <SingleProfile /> 
             </div>
+            : <p>Loading...</p>
         )
     }
 }

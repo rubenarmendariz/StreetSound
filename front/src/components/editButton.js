@@ -48,14 +48,14 @@ function FloatingActionButtons(props) {
       </button>
 
 
-      <div class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-          <header class="modal-card-head">
-            <p class="modal-card-title">Modal title</p>
-            <button onClick={()=>el[0].classList.toggle('is-active')} class="delete" aria-label="close"></button>
+      <div className="modal">
+        <div className="modal-background"></div>
+        <div className="modal-card">
+          <header className="modal-card-head">
+            <p className="modal-card-title">Modal title</p>
+            <button onClick={()=>el[0].classList.toggle('is-active')} className="delete" aria-label="close"></button>
           </header>
-          <section class="modal-card-body">
+          <section className="modal-card-body">
           <User></User>
           {/* <TextField
           id="outlined-name"

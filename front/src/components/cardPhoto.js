@@ -10,8 +10,6 @@ class CardPhoto extends Component {
     this.photo = new PhotoProfile();
   }
   handleChange(e) {
-    console.log('handleChange');
-    console.log('DEBUG e.target.files[0]', e.target.files[0]);
     this.setState({
       file: e.target.files[0]
     })
@@ -20,7 +18,9 @@ class CardPhoto extends Component {
     e.preventDefault()
     this.photo.addPicture(this.state.file)
   }
-  render() {                
+
+  render() {
+    
     return (
       <div className="Home">
         <h2>Home</h2>
@@ -30,6 +30,8 @@ class CardPhoto extends Component {
           <input type="file" onChange={(e)=>this.handleChange(e)} /> <br/>
           <button type="submit">Save new profile picture</button>
         </form>
+
+        <img src="http://res.cloudinary.com/dz4mjhdbf/image/upload/v1539515057/folder-name/calder-s-circus-1931.jpg%21Large.jpg.jpg" alt="img" />
       </div>
     );
   }

@@ -15,13 +15,12 @@ const styles = theme => ({
 
 function FloatingActionButtons(props) {
   const { classes } = props;
-  var el = document.getElementsByClassName('modal')
   return (
     <div>
-      <Button onClick={()=>el[0].classList.toggle('is-active')} variant="fab" color="secondary" aria-label="Edit" className="button is-primary is-large modal-button" data-target="modal-ter" aria-haspopup="true"> variant="fab" color="primary" aria-label="Add" className={classes.button}>
+      <Button variant="fab" color="primary" aria-label="Add" className={classes.button}>
         <AddIcon />
       </Button>
-      
+  
     </div>
   );
 }
@@ -31,3 +30,9 @@ FloatingActionButtons.propTypes = {
 };
 
 export default withStyles(styles)(FloatingActionButtons);
+
+
+
+
+
+

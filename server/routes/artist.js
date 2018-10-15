@@ -34,6 +34,7 @@ router.post('/profile', uploadCloud.single('photo'), (req, res, next) => {
 
 router.get("/profile/:id", (req, res, next) => {
   console.log(req.session, 'entra')
+
   User.findById({ _id: req.params.id })
     .then(users => {
       res.status(200).json(users)

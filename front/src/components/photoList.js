@@ -24,19 +24,19 @@ export default class PhotoList extends React.Component {
             })
     }
 
-    componentWillMount() {
-        this.fetchPhotos();
-    }
+    // componentWillMount() {
+    //     this.fetchPhotos();
+    // }
 
-    fetchPhotos() {
+    // fetchPhotos() {
 
-        axios.get(`http://localhost:3000/api/artist/profile/${this.props.userId}`)
-            .then(arr => {
-                console.log(arr)
-                this.setState({ PhotoList: arr.data })
-            })
-            .catch(e => console.log(e));
-    };
+    //     axios.get(`http://localhost:3000/api/artist/profile/${this.props.userId}`)
+    //         .then(arr => {
+    //             console.log(arr)
+    //             this.setState({ PhotoList: arr.data })
+    //         })
+    //         .catch(e => console.log(e));
+    // };
 
 
     render() {

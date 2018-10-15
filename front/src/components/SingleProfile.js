@@ -8,7 +8,6 @@ export default class SingleProfile extends Component {
     render() {
         let {username,email, _id} = this.props;
         let route = `/profile/${_id}`;
-    // let { name, email} = this.props;
         return(
             <div>
                 <Link to={route}>{username}</Link>
@@ -16,10 +15,6 @@ export default class SingleProfile extends Component {
                <h1>{email}</h1>
                    
                    
-{/*         
-                <h1>{name}</h1>
-                <h2>{email}</h2> */}
-               
             </div>
         )
     }

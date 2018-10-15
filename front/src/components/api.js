@@ -13,8 +13,6 @@ export default class PhotoProfile {
     const formData = new FormData();
     formData.append("PicProfilePath", file)
 
-    console.log('DEBUG formData', formData.get("PicProfilePath"));
-    
     return this.profilePicture
       .post('/edit', formData, {
         headers: {

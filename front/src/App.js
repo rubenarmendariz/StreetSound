@@ -59,7 +59,7 @@ class App extends Component {
           <header className="App-header">
             <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
             <Route exact path='/musicos' render={() => <Musicos getUser={this.getTheUser}/>}/>
-            <Route path="/profile" render={() => <Profile getUser={this.getTheUser}/>} ></Route>
+            <Route exact path="/profile/:id" component={Profile} ></Route>
             <Route exact path='/' render={() => <HomePage getUser={this.getTheUser}/>}/> 
             <Route exact path ='/login' render = {() => <Redirect to = "/" getUser={this.getTheUser}/>}/>
             <Route exact path ='/signup' render = {() => <Redirect to = "/" getUser={this.getTheUser}/>}/>

@@ -3,13 +3,9 @@ import axios from 'axios';
 // import SimpleMap from './../GoogleMapReact';
 // import AuthService from '../auth/AuthService';
 import Artist from '../auth/Artist';
-<<<<<<< HEAD
 import EditButton from '../components/editButton';
 import AddPhotoPrueba from '../components/AddPhotoPrueba';
 
-=======
-import AddPhotoPrueba from '../components/AddPhotoPrueba'
->>>>>>> 4a357b0c981403ea12794fddf0aac396b1254468
 class User extends Component {
     constructor(props) {
       super(props);
@@ -68,7 +64,7 @@ class User extends Component {
       <div>
        
   
-         <form onSubmit={this.handleFormSubmit}>
+          <form onSubmit={this.handleFormSubmit}>
           <fieldset>
             <label>genero:</label>
             <input type="text" name="genero" value={this.state.genero} onChange={e => this.handleChange(e)} />
@@ -89,20 +85,18 @@ class User extends Component {
             <label>email:</label>
             <input type="text" name="email" value={this.state.email} onChange={e => this.handleChange(e)} />
           </fieldset>
-          {/* <AddPhotoPrueba /> */}
-          <AddPhotoPrueba />
+     
           <footer class="modal-card-foot">
             <button type ="submit" value= "login" onClick={()=>el[0].classList.toggle('is-active')}class="button is-success">Save changes</button>
             <button onClick={()=>el[0].classList.toggle('is-active')} class="button">Cancel</button>
-          </footer>
-          
-          {/* <button  type="submit" value="Login" /> */}
+          </footer> 
+         
+          {/* // <button  type="submit" value="Login" /> */}
           
         </form>
   
-        <h1>{this.state.error ? 'Error' : ''}</h1> 
+         {/* <h1>{this.state.error ? 'Error' : ''}</h1>} */}
 
-      {/* <EditButton></EditButton> */}
 
 
       </div>

@@ -83,7 +83,8 @@ router.get('/logout', (req, res) => {
 });
 
 router.post("/newVideo", (req, res, next) => {
-  const url = req.body.url;
+ // const url = req.body.url;
+ const url = "https://www.youtube.com/embed/" + req.body.url.split("=")[1]
   User.findByIdAndUpdate(req.user._id, { $push: { addVideo: url } }, { new: true })
     .then(user => res.json({ videos: user.addVideo }))
     .catch(err => {

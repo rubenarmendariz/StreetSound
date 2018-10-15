@@ -24,37 +24,37 @@ export default class VideoList extends React.Component {
             })
     }
 
-    componentWillMount() {
-        this.fetchVideos();
-    }
+    // componentWillMount() {
+    //     this.fetchVideos();
+    // }
 
-    fetchVideos() {
+    // fetchVideos() {
 
-        axios.get(`http://localhost:3000/api/artist/profile/${this.props.userId}`)
-            .then(arr => {
-                console.log(arr)
-                this.setState({ videoList: arr.data })
-            })
-            .catch(e => console.log(e));
-    };
+    //     axios.get(`http://localhost:3000/api/artist/profile/${this.props.userId}`)
+    //         .then(arr => {
+    //             console.log(arr)
+    //             this.setState({ videoList: arr.data })
+    //         })
+    //         .catch(e => console.log(e));
+    // };
 
 
     render() {
-        this.fetchVideos();
+      
         
         return (
 
-            this.state.videoList ?
+           
                 <div>
-                    {this.state.videoList.map(video => <CardVideo {...video} key={video._id} url={video} />)}
-                </div>
+                    {this.props.addVideo.map(video => <CardVideo {...video} key={video._id} url={video} />)}
 
-                :
+                
                 
                 <form onSubmit={this.createNewVideo}>
                     <div><button type="submit">Submit</button></div>
                     <input type="text" name="linkVideo" onChange={e => this.setState({ url: e.currentTarget.value })} />
                 </form>
+                </div>
         )
     }
 }
