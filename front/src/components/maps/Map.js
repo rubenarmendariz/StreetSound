@@ -1,78 +1,47 @@
 import React, { Component } from 'react';
-import GoogleMapReact from 'google-map-react';
-// import Marker from 'google-map-react';
-import geolocalize from './geolocalize'
+import { render } from 'react-dom';
+import * as mapConstants from './constants';
 
- 
-const Marker = props => {
-    //console.log(props)
-    return <div className="Marker"><img src='http://maps.google.com/mapfiles/ms/icons/red-dot.png' alt="ALT"/>
-            </div>
+export default class Map extends Component {
+  constructor(props) {
+    super(props);
+    this.onScriptLoad = this.onScriptLoad.bind(this)
   }
- 
-class SimpleMap extends Component {
-    static defaultProps = {
-        center: {
-          lat: 40.3827563,
-          lng: -3.692763
-        },
-        zoom: 12
-    };
-    constructor(props) {
-        super(props);
-        
-        this.state = {
-            marker:
-              {
-                title: "Marker",
-                position: { lat: '', lng: '' }
-              }
-        };
-        this.onClick = this.onClick.bind(this);
-      }
-      onClick = ({x, y, lat, lng, event}) => {
-          this.props.getLoc(lat, lng)
-          this.setState({
-            marker:
-              {
-                title: "Marker",
-                position: { lat: lat, lng: lng }
-              }
-          });
-        };
-        setPosOnForm = (lat, lng) => {
-            console.log("ENTRA")
-            document.addEventListener('DOMContentLoaded', () => {
-                console.log("ENTRA 2")
-                document.getElementById('lat-pos').value = lat;
-                document.getElementById('lng-pos').value = lng;
-            }, false);
-        
-        }
-  
 
- 
+  onScriptLoad() {
+    const map = new window.google.maps.Map(
+      document.getElementById(this.props.id),
+      this.props.options);
+
+      const newStyleMap = new window.google.maps.StyledMapType( mapConstants.STYLES, {name: 'BlackMap'});
+
+      map.mapTypes.set( 'BlackMap', newStyleMap );
+      map.setMapTypeId( 'BlackMap' );
+
+
+    this.props.onMapLoad(map)
+  }
+
+  componentDidMount() {
+    if (!window.google) {
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.src = `https://maps.google.com/maps/api/js?key=AIzaSyA2VCIDASPyZRdr58uKR5ucueARsagOD6s`;
+      var x = document.getElementsByTagName('script')[0];
+      x.parentNode.insertBefore(s, x);
+      // Below is important. 
+      //We cannot access google.maps until it's finished loading
+      s.addEventListener('load', e => {
+        this.onScriptLoad()
+      })
+    } else {
+      this.onScriptLoad()
+    }
+  }
+
   render() {
-    console.log(this.state)
     return (
-      // Important! Always set the container height explicitly
-      <div style={{ height: '50vh', width: '100%' }}>
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: 'AIzaSyAipHldqlNVFFDnn3uPGera7sIh05RqRi8'}}
-          defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
-          onClick={this.onClick}
-        >
-            <Marker
-            lat={this.state.marker.position.lat}
-            lng={this.state.marker.position.lng}
-            title={'COSAS'}
-            />
-          
-        </GoogleMapReact>
-      </div>
+      <div style={{ width: 500, height: 500 }} id={this.props.id} />
     );
   }
 }
-
-export default SimpleMap;
