@@ -26,6 +26,7 @@ const styles = theme => ({
 });
 
 function FloatingActionButtons(props) {
+  var el = document.getElementsByClassName('modal')
   const { classes } = props;
   return (
     <div>

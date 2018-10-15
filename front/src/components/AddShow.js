@@ -94,6 +94,6 @@ class Show extends Component {
       </div>)
     }
   }
-}
+
 
 export default Show;

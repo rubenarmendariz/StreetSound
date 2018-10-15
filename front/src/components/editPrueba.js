@@ -1,11 +1,8 @@
 import React, { Component, Children } from 'react';
 import axios from 'axios';
 import Artist from '../auth/Artist';
-<<<<<<< HEAD
 import EditButton from '../components/editButton';
-=======
 // import EditButton from '../components/editButton';
->>>>>>> d5fba9baa22c812b317d320a6b3b3b55b8da35c2
 import AddPhotoPrueba from '../components/AddPhotoPrueba';
 import Map from '../components/GoogleMapReact';
 
