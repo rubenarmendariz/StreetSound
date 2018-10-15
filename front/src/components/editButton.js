@@ -48,6 +48,12 @@ function FloatingActionButtons(props) {
       </button>
 
 
+      {/* <div className="modal">
+        <div className="modal-background"></div>
+        <div className="modal-card">
+          <header className="modal-card-head">
+            <p className="modal-card-title">Modal title</p>
+            <button onClick={()=>el[0].classList.toggle('is-active')} className="delete" aria-label="close"></button> */}
       <div class="modal">
         <div class="modal-background"></div>
         <div class="modal-card">

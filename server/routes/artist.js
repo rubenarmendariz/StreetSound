@@ -33,6 +33,7 @@ router.get('/musicos', (req, res, next) => {
   Show.find()
   .populate("user", "username")
     .then(shows => {
+      console.log(show)
       res.status(200).json(shows)
     })
 
