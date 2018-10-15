@@ -45,15 +45,9 @@ export default class Profile extends React.Component {
             <div>
                 <img src={this.state.user.PicProfilePath} alt="foto de perfil" />
                 <h1>Este es mi Perfil {this.state.user.username}</h1>
-                <SingleProfile />
-<<<<<<< HEAD
                 <VideoList {...this.state.user}/><p>add video</p>
                 <AddButton /><p>add photo</p>
-=======
-                <VideoList /><p>add video</p>
-                {/* <AddButton /><p>add photo</p> */}
->>>>>>> d5fba9baa22c812b317d320a6b3b3b55b8da35c2
-                <AddButton /><p>add event</p>
+                {/* <AddButton /><p>add event</p> */}
                 <EditButton />
                 
 
@@ -61,17 +55,10 @@ export default class Profile extends React.Component {
                 {/* <Show/> */}
                 <CardPhoto />
                 <h1>holaaaaa</h1>
-                <SingleProfile /> 
                 <SelectGenero />
-<<<<<<< HEAD
                 
                 <User/>
-                <SingleProfile /> 
-=======
-                <VideoList></VideoList>
-                {/* <User></User> */}
-                {/* <SingleProfile />  */}
->>>>>>> d5fba9baa22c812b317d320a6b3b3b55b8da35c2
+                <SingleProfile {...this.state.user}/> 
             </div>
             : <p>Loading...</p>
         )

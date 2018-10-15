@@ -27,8 +27,13 @@ const styles = theme => ({
 
 function FloatingActionButtons(props) {
   const { classes } = props;
+  var el = document.getElementsByClassName('modal')
   return (
     <div>
+      {/* <Button variant="fab" color="primary" aria-label="Add" className={classes.button}>
+        <AddIcon />
+      </Button> */}
+  
       <Button onClick ={()=>el[0].classList.toggle('is-active')}  variant="fab" color="primary" aria-label="Add" className={classes.button}>
         <AddIcon />
       </Button>
@@ -58,6 +63,7 @@ FloatingActionButtons.propTypes = {
 };
 
 export default withStyles(styles)(FloatingActionButtons);
+
 
 
 
