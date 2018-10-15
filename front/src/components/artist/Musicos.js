@@ -4,13 +4,16 @@ import axios from 'axios';
 import SingleProfile from '../SingleProfile';
  import SearchBar from "../SearchBar";
 //  import MyMap from "../maps/MyMap";
- import Map from "../GoogleMapReact";
+ import SimpleMap from "../GoogleMapReact";
+ import SingleShow from '../SingleShow';
+//  import SimpleMap from '../maps/Map';
+ 
 
 export default class Musicos extends Component {
     constructor(){
         super();
         this.state = {
-            artistList:[],
+            showList:[],
             
             
         }
@@ -21,7 +24,7 @@ export default class Musicos extends Component {
 
     fetchArtist(){
         axios.get('http://localhost:3000/api/artist/musicos')
-        .then(users => this.setState({artistList: users.data}))
+        .then(shows => this.setState({showList: shows.data}))
         // console.log(this.setState)
         .catch(e => console.log(e));
 
@@ -33,10 +36,10 @@ export default class Musicos extends Component {
 
 
 search(val) {
-    let filter = this.state.artistList.filter(e => {
+    let filter = this.state.showList.filter(e => {
       return e.username.toLowerCase().includes(val);
     });
-    this.setState({ artistList: filter });
+    this.setState({ showList: filter });
   }
 
 
@@ -55,11 +58,11 @@ search(val) {
           <div className="row">
             <div className="col-4 pre-scrollable" style={{maxHeight:"93vh"}}>
             
-            {this.state.artistList.map(artist => <SingleProfile {...artist} key={artist._id}></SingleProfile>)}
+            {this.state.showList.map(show => <SingleShow {...show} key={show._id}></SingleShow>)}
                  
             </div>
             <div className="col-8">
-            <Map/> {/* <Route path="/country/:cca3" component={CountryDetail} /> */}
+            <SimpleMap/> {/* <Route path="/country/:cca3" component={CountryDetail} /> */}
             </div>
           </div>
         </div>

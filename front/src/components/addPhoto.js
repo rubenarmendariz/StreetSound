@@ -1,8 +1,10 @@
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
+import Show from '../components/AddShow';
 
 const styles = theme => ({
   button: {
@@ -11,6 +13,16 @@ const styles = theme => ({
   extendedIcon: {
     marginRight: theme.spacing.unit,
   },
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+  },
+  dense: {
+    marginTop: 16,
+  },
+  menu: {
+    width: 200,
+  },
 });
 
 function FloatingActionButtons(props) {
@@ -18,10 +30,26 @@ function FloatingActionButtons(props) {
   var el = document.getElementsByClassName('modal')
   return (
     <div>
-      <Button onClick={()=>el[0].classList.toggle('is-active')} variant="fab" color="secondary" aria-label="Edit" className="button is-primary is-large modal-button" data-target="modal-ter" aria-haspopup="true"> variant="fab" color="primary" aria-label="Add" className={classes.button}>
+      <Button onClick ={()=>el[0].classList.toggle('is-active')}  variant="fab" color="primary" aria-label="Add" className={classes.button}>
         <AddIcon />
       </Button>
-      
+      <div class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Create new SHOW</p>
+            <button onClick={()=>el[0].classList.toggle('is-active')} class="delete" aria-label="close"></button>
+          </header>
+          <section class="modal-card-body">
+          <Show></Show>
+          
+        
+          </section>
+        
+        </div>
+      </div>
+        
+         
     </div>
   );
 }
@@ -31,3 +59,8 @@ FloatingActionButtons.propTypes = {
 };
 
 export default withStyles(styles)(FloatingActionButtons);
+
+
+
+
+

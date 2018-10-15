@@ -8,13 +8,36 @@ const Show = require('../models/Show');
 
 //BUSCADOR DE MUSICOS
 
+// router.get('/musicos', (req, res, next) => {
+//   User.find({isArtist:true})
+//     .then(users => {
+//       res.status(200).json(users)
+//     })
+
+// })
+
+// router.get('/musicos', (req, res, next) => {
+//   User.find()
+//   //Service.find()
+//   .then( users =>{
+//     Show.find()
+//     .then(shows => {
+  
+//     res.status(200).json(users, shows)
+//     //console.log(services)
+//     })
+//   })
+// })
+
 router.get('/musicos', (req, res, next) => {
-  User.find()
-    .then(users => {
-      res.status(200).json(users)
+  Show.find()
+  .populate("user", "username")
+    .then(shows => {
+      res.status(200).json(shows)
     })
 
 })
+
 
 router.post('/profile', uploadCloud.single('photo'), (req, res, next) => {
   console.log(req.file)
@@ -33,7 +56,7 @@ router.post('/profile', uploadCloud.single('photo'), (req, res, next) => {
 //EDICION DE PERFIL
 
 router.get("/profile/:id", (req, res, next) => {
-  console.log(req.session, 'entra')
+  console.log(req.params.id, 'entra')
   User.findById({ _id: req.params.id })
     .then(users => {
       res.status(200).json(users)

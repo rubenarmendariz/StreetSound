@@ -27,17 +27,19 @@ export default class Profile extends React.Component {
                 <h1>Este es mi Perfil</h1>
                 <SingleProfile />
                 <VideoList /><p>add video</p>
-                <AddButton /><p>add photo</p>
+                {/* <AddButton /><p>add photo</p> */}
                 <AddButton /><p>add event</p>
                 <EditButton />
+                
+
                 <DeleteButton />
-                <Show/>
+                {/* <Show/> */}
                 <CardPhoto />
                 <h1>holaaaaa</h1>
                 <SingleProfile /> 
                 <SelectGenero />
                 <VideoList></VideoList>
-                <User></User>
+                {/* <User></User> */}
                 {/* <SingleProfile />  */}
             </div>
         )

@@ -42,7 +42,7 @@ function FloatingActionButtons(props) {
 
   return (
       <div>
-      <button onClick={()=>el[0].classList.toggle('is-active')} variant="fab" color="secondary" aria-label="Edit" className="button is-primary is-large modal-button" data-target="modal-ter" aria-haspopup="true">
+      <button onClick={()=>el[1].classList.toggle('is-active')} variant="fab" color="secondary" aria-label="Edit" className="button is-primary is-large modal-button" data-target="modal-ter" aria-haspopup="true">
 
         <Icon>edit_icon</Icon>
       </button>
@@ -52,62 +52,15 @@ function FloatingActionButtons(props) {
         <div class="modal-background"></div>
         <div class="modal-card">
           <header class="modal-card-head">
-            <p class="modal-card-title">Modal title</p>
-            <button onClick={()=>el[0].classList.toggle('is-active')} class="delete" aria-label="close"></button>
+            <p class="modal-card-title">EditProfile</p>
+            <button onClick={()=>el[1].classList.toggle('is-active')} class="delete" aria-label="close"></button>
           </header>
           <section class="modal-card-body">
           <User></User>
-          {/* <TextField
-          id="outlined-name"
-          label="Name"
-          className={classes.textField}
-          // value={this.state.name}
-          // onChange={this.handleChange('name')}
-          margin="normal"
-          variant="outlined"
-        />
-        <TextField
-          id="outlined-name"
-          label="Name"
-          className={classes.textField}
-          // value={this.state.name}
-          // onChange={this.handleChange('name')}
-          margin="normal"
-          variant="outlined"
-        />
-        <TextField
-          id="outlined-name"
-          label="Name"
-          className={classes.textField}
-          // value={this.state.name}
-          // onChange={this.handleChange('name')}
-          margin="normal"
-          variant="outlined"
-        />
-        <TextField
-          id="outlined-name"
-          label="Name"
-          className={classes.textField}
-          // value={this.state.name}
-          // onChange={this.handleChange('name')}
-          margin="normal"
-          variant="outlined"
-        />
-        <TextField
-          id="outlined-name"
-          label="Name"
-          className={classes.textField}
-          // value={this.state.name}
-          // onChange={this.handleChange('name')}
-          margin="normal"
-          variant="outlined"
-        /> */}
+          
         
           </section>
-          {/* <footer class="modal-card-foot">
-            <button onClick={()=>console.log('saving')}class="button is-success">Save changes</button>
-            <button onClick={()=>el[0].classList.toggle('is-active')} class="button">Cancel</button>
-          </footer> */}
+        
         </div>
       </div>
     </div>

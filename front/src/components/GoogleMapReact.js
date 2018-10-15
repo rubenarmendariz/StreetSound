@@ -1,91 +1,167 @@
-import React from 'react';
 
-import './map.css';
+import React, { Component } from 'react';
+import GoogleMapReact from 'google-map-react';
+import {Marker} from '../components/Marker'
 
-export default class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      zoom: 13,
-      maptype: 'roadmap',
-      place_formatted: '',
-      place_id: '',
-      place_location: '',
-    };
-  }
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-  componentDidMount() {
-    let map = new window.google.maps.Map(document.getElementById('map'), {
-      center: {lat: 3.8688, lng: 151.2195},
-      zoom: 13,
-      mapTypeId: 'roadmap',
-    });
-
-    map.addListener('zoom_changed', () => {
-      this.setState({
-        zoom: map.getZoom(),
-      });
-    });
-
-    map.addListener('maptypeid_changed', () => {
-      this.setState({
-        maptype: map.getMapTypeId(),
-      });
-    });
-
-    let marker = new window.google.maps.Marker({
-      map: map,
-      position: {lat: -33.8688, lng: 40.2195},
-    });
-
-    // initialize the autocomplete functionality using the #pac-input input box
-    let inputNode = document.getElementById('pac-input');
-    map.controls[window.google.maps.ControlPosition.TOP_LEFT].push(inputNode);
-    if (inputNode.value !== '' ) {
-      let autoComplete = new window.google.maps.places.Autocomplete(inputNode)
-
-      autoComplete.addListener('place_changed', () => {
-        let place = autoComplete.getPlace();
-        let location = place.geometry.location;
-  
-        this.setState({
-          place_formatted: place.formatted_address,
-          place_id: place.place_id,
-          place_location: location.toString(),
-        });
-  
-        // bring the selected place in view on the map
-        map.fitBounds(place.geometry.viewport);
-        map.setCenter(location);
-  
-        marker.setPlace({
-          placeId: place.place_id,
-          location: location,
-        });
-      });
-    };
+const geolocalize = () => {
+  return new Promise((resolve, reject) => {
+      if (!navigator.geolocation) reject('No geolocation available');
+      navigator.geolocation.getCurrentPosition( (pos) => {
+        const center = {
+          lat: pos.coords.latitude,
+          lng: pos.coords.longitude
+        };
+        resolve(center);
+      }, reject)
+  });
+}
 
 
-  }
+const setPosOnForm = (latlng) => {
+  document.getElementById('lat-pos').value = latlng.lat;
+  document.getElementById('lng-pos').value = latlng.lng;
 
+}
+
+class SimpleMap extends Component {
+  static defaultProps = {
+    center: {
+      lat: 40.4465,
+      lng: -3.6489
+    },
+    zoom: 15
+  };
+componentDidMount(){
+  window.addEventListener('click',(e)=>console.log(e))
+}
   render() {
+    
+   
+    
+  //  this.addListener('click', function(e) {
+  //     const clickPos = {
+  //       lat:e.latLng.lat(),
+  //       lng:e.latLng.lng()
+  //     }
+  //     console.log(clickPos);
+  //     Marker.setPosition(clickPos);
+  //     setPosOnForm(clickPos)
+  //   });
+    // geolocalize().then(center => {
+    //   SimpleMap.setCenter(center);
+    //   Marker = new window.google.maps.Marker({
+    //     position: center,
+    //     map: SimpleMap
+    //   });
+    //   //map.fitBounds(new google.maps.LatLng([center, center]));
+    //   setPosOnForm(center);
+    // });
+  
     return (
-      <div id='app'>
-      <div id='state'>
-  <h1>State</h1>
-  <p>
-    Zoom level: {this.state.zoom}<br />
-    Map type: {this.state.maptype}
-    <p>Place: {this.state.place_formatted}</p>
-<p>Place ID: {this.state.place_id}</p>
-<p>Location: {this.state.place_location}</p>
-  </p>
-</div>
-<div id='pac-container'>
-  <input id='pac-input' type='text' placeholder='Enter a location' />
-</div>
-        <div id='map' />
+      // console.log(this.defaultProps)
+      // Important! Always set the container height explicitly
+      <div style={{ height: '100vh', width: '100%' }}>
+        <GoogleMapReact
+          bootstrapURLKeys={{ key:'AIzaSyAipHldqlNVFFDnn3uPGera7sIh05RqRi8' }}
+          defaultCenter={this.props.center}
+          defaultZoom={this.props.zoom}
+        >
+          {/* <AnyReactComponent
+            lat={40.4168}
+            lng={-3.7038}
+            text={'Kreyser Avrora'}
+          /> */}
+
+          <Marker lat ="40.4465" lng= "-3.6489"></Marker>
+        </GoogleMapReact>
       </div>
     );
   }
-};
+}
+
+export default SimpleMap;
+
+// import React from 'react';
+// import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-map-react';
+// import Paper from 'material-ui/Paper';
+// import Typography from 'material-ui/Typography';
+// import { typography } from 'material-ui/styles';
+
+// export class GoogleMapsContainer extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       showingInfoWindow: false,
+//       activeMarker: {},
+//       selectedPlace: {}
+//     }
+//     // binding this to event-handler functions
+//     this.onMarkerClick = this.onMarkerClick.bind(this);
+//     this.onMapClick = this.onMapClick.bind(this);
+//   }
+//   onMarkerClick = (props, marker, e) => {
+//     this.setState({
+//       selectedPlace: props,
+//       activeMarker: marker,
+//       showingInfoWindow: true
+//     });
+//   }
+//   onMapClick = (props) => {
+//     if (this.state.showingInfoWindow) {
+//       this.setState({
+//         showingInfoWindow: false,
+//         activeMarker: null
+//       });
+//     }
+//   }
+//   render() {
+//     const style = {
+//       width: '50vw',
+//       height: '75vh',
+//       'marginLeft': 'auto',
+//       'marginRight': 'auto'
+//     }
+//     return (
+//       <Map
+//         item
+//         xs = { 12 }
+//         style = { style }
+//         google = { this.props.google }
+//         onClick = { this.onMapClick }
+//         zoom = { 14 }
+//         initialCenter = {{ lat: 39.648209, lng: -75.711185 }}
+//       >
+//         <Marker
+//           onClick = { this.onMarkerClick }
+//           title = { 'Changing Colors Garage' }
+//           position = {{ lat: 39.648209, lng: -75.711185 }}
+//           name = { 'Changing Colors Garage' }
+//         />
+//         <InfoWindow
+//           marker = { this.state.activeMarker }
+//           visible = { this.state.showingInfoWindow }
+//         >
+//           <Paper>
+//             <Typography
+//               variant = 'headline'
+//               component = 'h4'
+//             >
+//               Changing Colors Garage
+//             </Typography>
+//             <Typography
+//               component = 'p'
+//             >
+//               98G Albe Dr Newark, DE 19702 <br />
+//               302-293-8627
+//             </Typography>
+//           </Paper>
+//         </InfoWindow>
+//       </Map>
+//     );
+//   }
+// }
+// export default GoogleApiWrapper({
+//     api: 'AIzaSyAipHldqlNVFFDnn3uPGera7sIh05RqRi8'
+// })(GoogleMapsContainer)

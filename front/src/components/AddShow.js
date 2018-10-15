@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import axios from 'axios';
 // import SimpleMap from './../GoogleMapReact';
 // import AuthService from '../auth/AuthService';
+import SimpleMap from '../components/GoogleMapReact'
 import Artist from '../auth/Artist';
 class Show extends Component {
     constructor(props) {
@@ -59,7 +60,8 @@ class Show extends Component {
     }
   
     render() {
-  
+      var el = document.getElementsByClassName('modal')
+
       return (<div>
        
   
@@ -78,8 +80,13 @@ class Show extends Component {
 
   <input id="lat-pos" type="" name="latitude" value={this.state.latitude} onChange={e => this.handleChange(e)} placeholder="Latitude" />
   <input id="lng-pos" type="" name="longitude" value={this.state.longitude} onChange={e => this.handleChange(e)} placeholder="Longitude" />
+  <SimpleMap></SimpleMap>
            </fieldset>
-          <input type="submit" value="Login" />
+          {/* <input type="submit" value="Login" /> */}
+          <footer className="modal-card-foot">
+          <button type ="submit" value= "login" onClick={()=>el[0].classList.toggle('is-active')}class="button is-success">Save changes</button>
+          <button onClick={()=>el[0].classList.toggle('is-active')} className="button">Cancel</button>
+        </footer>
           
         </form>
   
