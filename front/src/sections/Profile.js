@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import SingleProfile from '../components/SingleProfile';
+// import SingleProfile from '../components/SingleProfile';
 // import AddPhotoPrueba from '../components/AddPhotoPrueba';
 import VideoList from '../components/videos/videoList';
-import User from '../components/edit/editPrueba';
-import CardPhoto from '../components/Photos/cardPhoto';
+// import User from '../components/edit/editPrueba';
+// import CardPhoto from '../components/Photos/cardPhoto';
 import PhotoList from '../components/Photos/photoList'
 
 export default class Profile extends React.Component {

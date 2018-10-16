@@ -1,6 +1,5 @@
 import React from 'react';
 import { CardVideo } from './cardVideo';
-import axios from 'axios';
 import AuthService from '../../auth/AuthService';
 
 

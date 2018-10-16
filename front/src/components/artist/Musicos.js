@@ -7,6 +7,7 @@ import SingleProfile from '../SingleProfile';
  import SimpleMap from "../GoogleMapReact";
  import SingleShow from '../SingleShow';
 //  import SimpleMap from '../maps/Map';
+import { Redirect} from 'react-router-dom';
  
 
 export default class Musicos extends Component {
@@ -45,9 +46,8 @@ search(val) {
 
   render(){
         return(
+            
             <div>
-              
-
                 <div className="container border">
         <div className="list-group">
           <span className="list-group-item list-group-item-action active">
@@ -68,6 +68,8 @@ search(val) {
         </div>
       </div>
             </div>
+           
+        
         )
     }
 }

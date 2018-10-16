@@ -13,8 +13,10 @@ export default class SingleProfile extends Component {
         let {username,email, _id} = this.props;
         console.log(this.props)
         let route = `/profile/${_id}`;
+        
         if(this.props){
         return(
+           
             <div>
                 
                 <Link to={route}>{username}</Link>
@@ -23,6 +25,7 @@ export default class SingleProfile extends Component {
                    
                    
             </div>
+           
         )
     }else {
         return(<p>Loading...</p>)
