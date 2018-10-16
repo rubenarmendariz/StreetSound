@@ -62,7 +62,7 @@ class Navbar extends Component {
            <button onClick={this.handleLogout}>Cerrar sesion</button>
            </Link>
          
-           <Link to = {`/profile/${this.props.userInSession._id}`}>
+           <Link to = {'/myProfile'}>
              <button>Mi Perfil</button>
              </Link>
         </div>

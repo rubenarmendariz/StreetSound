@@ -82,6 +82,10 @@ router.get('/logout', (req, res) => {
   res.status(200).json({ message: 'logged out' })
 });
 
+
+
+//AÑADIR VIDEOS A LISTA
+
 router.post("/newVideo", (req, res, next) => {
  // const url = req.body.url;
  const url = "https://www.youtube.com/embed/" + req.body.url.split("=")[1]
@@ -96,5 +100,42 @@ router.post("/newVideo", (req, res, next) => {
 router.use((err, req, res, next) => {
   res.status(500).json({ message: err.message });
 })
+
+
+//AÑADIR FOTOS A LISTA
+
+router.post('/first-user/pictures/listPhoto', uploadCloud.single('addPhoto'), (req, res, next) => {
+  let id = req.user._id 
+  User.findByIdAndUpdate(id, { $push: { addPhoto: req.file.url } }, { new: true })
+  .then(() => 
+  {
+    res.json({
+      success: true,
+      addPhoto: req.file.url
+     })
+ })
+
+//  router.use((err, req, res, next) => {
+//   res.status(500).json({ message: err.message });
+})
+
+
+// router.post('/first-user/pictures/edit', uploadCloud.single('PicProfilePath'), (req, res, next) => {
+//   console.log("entraaaaaa");
+//   console.log(req.user._id);
+//   console.log(req.file.url);
+//   let id = req.user._id
+//   User.findByIdAndUpdate(id, { PicProfilePath: req.file.url })
+//   // console.log(user)
+//     .then(() => 
+//     {
+//       res.json({
+//         success: true,
+//         addPhoto: req.file.url
+//       })
+//     })
+// });
+
+
 
 module.exports = router;

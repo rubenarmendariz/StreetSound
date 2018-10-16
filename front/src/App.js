@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Switch, Route, Redirect} from 'react-router-dom';
 import Profile from './sections/Profile';
+import MyProfile from './sections/myProfile';
 // import ProjectList from './components/projects/ProjectList';
 import Navbar from './components/Navbar';
 // import ProjectDetails from './components/projects/ProjectDetails';
@@ -59,6 +60,7 @@ class App extends Component {
           <header className="App-header">
             <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
             <Route exact path='/musicos' render={() => <Musicos getUser={this.getTheUser}/>}/>
+            <Route exact path='/myProfile' render={() => <MyProfile userInSession={this.state.loggedInUser} getUser={this.getTheUser}/>}/>
             <Route exact path="/profile/:id" component={Profile} ></Route>
             <Route exact path='/' render={() => <HomePage getUser={this.getTheUser}/>}/> 
             <Route exact path ='/login' render = {() => <Redirect to = "/" getUser={this.getTheUser}/>}/>

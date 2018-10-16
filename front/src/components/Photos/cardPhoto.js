@@ -30,8 +30,6 @@ class CardPhoto extends Component {
           <input type="file" onChange={(e)=>this.handleChange(e)} /> <br/>
           <button type="submit">Save new profile picture</button>
         </form>
-
-        <img src="http://res.cloudinary.com/dz4mjhdbf/image/upload/v1539515057/folder-name/calder-s-circus-1931.jpg%21Large.jpg.jpg" alt="img" />
       </div>
     );
   }

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 // import axios from 'axios';
 // import SimpleMap from './../GoogleMapReact';
 // import AuthService from '../auth/AuthService';
-import SimpleMap from '../components/GoogleMapReact'
-import Artist from '../auth/Artist';
+import SimpleMap from '../GoogleMapReact'
+import Artist from '../../auth/Artist';
 class Show extends Component {
   constructor(props) {
     super(props);
