@@ -43,8 +43,8 @@ class Show extends Component {
           day: "",
           month: "",
           hour: "",
-          latitude: Number,
-          longitude: Number,
+          latitude: null,
+          longitude: null,
           description: "",
           genero: ""
         });
@@ -59,41 +59,9 @@ class Show extends Component {
     this.setState({ [name]: value });
   }
 
-  // render() {
-
-  //   return (<div>
-
-
-  //     <form onSubmit={this.handleFormSubmit}>
-  //       <fieldset>
-  //         <label>genero:</label>
-  //         <input type="text" name="genero" value={this.state.genero} onChange={e => this.handleChange(e)} />
-  //       </fieldset>
-
-  //       <fieldset>
-  //         <label>description:</label>
-  //         <input type="text" name="description" value={this.state.description} onChange={e => this.handleChange(e)} />
-  //       </fieldset>
-  //       <fieldset>
-  //         <label>Address</label>
-
-  //         <input id="lat-pos" type="" name="latitude" value={this.state.latitude} onChange={e => this.handleChange(e)} placeholder="Latitude" />
-  //         <input id="lng-pos" type="" name="longitude" value={this.state.longitude} onChange={e => this.handleChange(e)} placeholder="Longitude" />
-  //       </fieldset>
-  //       <input type="submit" value="Login" />
-
-  //     </form>
-
-  //     <h1>{this.state.error ? 'Error' : ''}</h1>
-  //   </div>)
-  //     .catch( error => console.log(error) )
-  //   }
-    
-  
-  //   handleChange = (event) => {
-  //     const { name, value } = event.target;
-  //     this.setState({ [name]: value });
-  //   }
+  changeInputs = (latitude,longitude) => {
+    this.setState({ latitude, longitude });
+}
   
     render() {
       var el = document.getElementsByClassName('modal')
@@ -116,7 +84,7 @@ class Show extends Component {
 
   <input id="lat-pos" type="" name="latitude" value={this.state.latitude} onChange={e => this.handleChange(e)} placeholder="Latitude" />
   <input id="lng-pos" type="" name="longitude" value={this.state.longitude} onChange={e => this.handleChange(e)} placeholder="Longitude" />
-  <SimpleMap></SimpleMap>
+  <SimpleMap changeInputs={(lat, lng)=> this.changeInputs(lat, lng)}></SimpleMap>
            </fieldset>
           {/* <input type="submit" value="Login" /> */}
           <footer className="modal-card-foot">
