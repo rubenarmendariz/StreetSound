@@ -33,7 +33,6 @@ router.get('/musicos', (req, res, next) => {
   Show.find()
   .populate("user", "username")
     .then(shows => {
-      console.log(show)
       res.status(200).json(shows)
     })
 
@@ -57,8 +56,6 @@ router.post('/profile', uploadCloud.single('photo'), (req, res, next) => {
 //EDICION DE PERFIL
 
 router.get("/profile/:id", (req, res, next) => {
-  console.log(req.session, 'entra')
-
   console.log(req.params.id, 'entra')
   User.findById({ _id: req.params.id })
     .then(users => {

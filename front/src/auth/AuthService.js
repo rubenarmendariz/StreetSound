@@ -43,6 +43,13 @@ class AuthService {
       )
   }
 
+  newPhoto = (id) => {
+    return this.service.post('/newPhoto', {id})
+    .then(response => 
+      response.data
+    )
+  }
+
 }
 
 export default AuthService;

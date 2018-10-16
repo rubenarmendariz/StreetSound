@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
-import AddPhotoPrueba from '../components/AddPhotoPrueba';
+import AddPhotoPrueba from '../AddPhotoPrueba';
 import classNames from 'classnames';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
-import User from '../components/editPrueba'
+import User from './editPrueba'
 
 
 const styles = theme => ({
