@@ -5,7 +5,7 @@ import {Marker} from '../components/Marker';
 import {Position} from './Position'
 import { format } from 'path';
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+const AnyReactComponent = ({ text }) => <img src="http://maps.google.com/mapfiles/ms/icons/red-dot.png"></img>;
 
 const geolocalize = () => {
   return new Promise((resolve, reject) => {
@@ -28,7 +28,8 @@ class SimpleMap extends Component {
     super(props)
     this.state={
       lat: Number,
-      lng:Number
+      lng:Number,
+      marker: null
 
     }
   }
@@ -55,6 +56,9 @@ class SimpleMap extends Component {
 
   _onClick = ({x, y, lat, lng, event}) => {
     this.props.changeInputs(lat,lng)
+    this.setState({
+      marker: <AnyReactComponent lat={lat} lng={lng}></AnyReactComponent>
+    })
     
   }
   function _onClick(obj){ console.log(obj.x, obj.y, obj.lat, obj.lng, obj.event);}
@@ -68,7 +72,7 @@ class SimpleMap extends Component {
     // Important! Always set the container height explicitly
     <div style={{ height: '100vh', width: '100%' }}>
          
-         {console.log(this.lat)}
+         {console.log(this.state.lat)}
         <GoogleMapReact
         
         
@@ -81,7 +85,7 @@ class SimpleMap extends Component {
         >
           
 
-          <Marker  ></Marker>
+          {this.state.marker ? this.state.marker : <AnyReactComponent lat={40.4465} lng={-3.6489}></AnyReactComponent>}
         </GoogleMapReact>
    
           

@@ -6,6 +6,7 @@ import SingleProfile from '../SingleProfile';
 //  import MyMap from "../maps/MyMap";
  import SimpleMap from "../GoogleMapReact";
  import SingleShow from '../SingleShow';
+ import Map from '../Map'
 
 //  import SimpleMap from '../maps/Map';
  
@@ -33,12 +34,13 @@ export default class Musicos extends Component {
 
         
     }
+    
    
 
 
 search(val) {
     let filter = this.state.showList.filter(e => {
-      return e.username.toLowerCase().includes(val);
+      return e.genero.toLowerCase().includes(val);
     });
     this.setState({ showList: filter });
   }
@@ -63,7 +65,7 @@ search(val) {
                  
             </div>
             <div className="col-8">
-            <SimpleMap/> {/* <Route path="/country/:cca3" component={CountryDetail} /> */}
+            <Map showLocations={this.state.showList}/> {/* <Route path="/country/:cca3" component={CountryDetail} /> */}
             </div>
           </div>
         </div>
