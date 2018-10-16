@@ -6,6 +6,7 @@ import SingleProfile from '../SingleProfile';
 //  import MyMap from "../maps/MyMap";
  import SimpleMap from "../GoogleMapReact";
  import SingleShow from '../SingleShow';
+
 //  import SimpleMap from '../maps/Map';
  
 

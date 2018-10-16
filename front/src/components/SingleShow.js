@@ -10,7 +10,7 @@ export default class SingleProfile extends Component {
     render() {
         console.log(this.props)
         let {user,description,genero} = this.props;
-        // console.log("User-------------------------------------"+ user._id)
+        console.log("User-------------------------------------"+ user._id)
         // let route = `/profile/${user._id}`;
     // let { name, email} = this.props;
         return(
