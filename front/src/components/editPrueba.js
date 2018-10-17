@@ -1,10 +1,10 @@
-import React, { Component, Children } from 'react';
-import axios from 'axios';
+import React, { Component, } from 'react'; //hemos quitado children
+// import axios from 'axios';
 import Artist from '../../auth/Artist';
-import EditButton from './editButton';
-// import EditButton from '../components/editButton';
-import AddPhotoPrueba from '../AddPhotoPrueba';
-import Map from '../GoogleMapReact';
+// import EditButton from './editButton';
+// // import EditButton from '../components/editButton';
+// import AddPhotoPrueba from '../AddPhotoPrueba';
+// import Map from '../GoogleMapReact';
 
 
 class User extends Component {

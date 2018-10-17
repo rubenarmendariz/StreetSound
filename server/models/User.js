@@ -12,8 +12,7 @@ const userSchema = new Schema({
   PicProfileName: String,
   isArtist: {type: Boolean, default: false},
   addPhoto: [String],
-  addVideo:  {type: Array,
-  'default': ["https://www.youtube.com/watch?v=y7d9VLRO3vc"]  }          
+  addVideo:  {type: Array}          
 }, {
   timestamps: {
     createdAt: 'created_at',

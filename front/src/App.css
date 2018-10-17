@@ -22,9 +22,21 @@
   display: flex;
   flex-direction: row
 } */
-
+html {
+  
+  height: 100%;
+}
+body {
+  height: 100%;
+  /* background-image: url("/images/fondo.jpg"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .App-link {
   color: #61dafb;
+}
+.list-group-item.active {
+  color: black !important
 }
 
 @keyframes App-logo-spin {

@@ -59,24 +59,26 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
-            <Route exact path='/musicos' render={() => <Musicos getUser={this.getTheUser}/>}/>
+          </header>
+            <Route exact path='/musicos' render={() => <Musicos  userInSession={this.state.loggedInUser} getUser={this.getTheUser}/>}/>
             <Route exact path='/myProfile' render={() => <MyProfile userInSession={this.state.loggedInUser} getUser={this.getTheUser}/>}/>
             <Route exact path="/profile/:id" component={Profile} ></Route>
             <Route exact path='/' render={() => <HomePage getUser={this.getTheUser}/>}/> 
             <Route exact path ='/login' render = {() => <Redirect to = "/" getUser={this.getTheUser}/>}/>
             <Route exact path ='/signup' render = {() => <Redirect to = "/" getUser={this.getTheUser}/>}/>
             {/* <Contents></Contents> */}
-
-          </header>
+           
         </div>
       );
     } else {
       return (
         <div className="App">
-            <Navbar />
+            
            
           
           <header className="App-header">
+          <Navbar /> 
+          </header>
             <Switch>
               <Route exact path='/' render={() => <HomePage getUser={this.getTheUser}/>}/>
               <Route exact path='/musicos' render={() => <Musicos getUser={this.getTheUser}/>}/> 
@@ -85,7 +87,7 @@ class App extends Component {
               <Route exact path ='/profile' render = {() => <Redirect to = "/" getUser={this.getTheUser}/>}/>
               {/* <Route path="/profile" render={() => <Profile getUser={this.getTheUser}/>} ></Route> */}
             </Switch>
-          </header>
+        
         </div>
       );
     }

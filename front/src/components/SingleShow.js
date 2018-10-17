@@ -7,16 +7,17 @@ export default class SingleProfile extends Component {
 
     render() {
         let {user,description,genero} = this.props;
-        let route = '/login';
-        console.log(user)
-        if(user)  route = `/profile/${user._id}` ;
+      
         return(
            
          <div>
-            <Link to={route}>{user.username}
+             {this.props.userInSession ? 
+            <Link to={`/profile/${user._id}`} >{user.username} </Link>
+            :
+            <Link to ={'/login'}>{user.username}</Link>}
                <h1>{genero}</h1>
                <p>{description}</p>
-            </Link>
+            
          </div>
             
        
