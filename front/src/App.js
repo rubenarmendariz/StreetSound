@@ -11,7 +11,7 @@ import Login from './auth/Login';
 import AuthService from './auth/AuthService';
 import HomePage from './sections/Home';
 import Musicos from './components/artist/Musicos'
-
+import Spotify from './sections/Spotify'
 // import Contents from './components/contents/Contents'
 
 class App extends Component {
@@ -78,6 +78,7 @@ class App extends Component {
           
           <header className="App-header">
             <Switch>
+              <Route path='/similar' render={() => <Spotify getUser={this.getTheUser}/>}/>
               <Route exact path='/' render={() => <HomePage getUser={this.getTheUser}/>}/>
               <Route exact path='/musicos' render={() => <Musicos getUser={this.getTheUser}/>}/> 
               <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>

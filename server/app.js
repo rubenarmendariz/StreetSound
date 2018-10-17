@@ -11,6 +11,23 @@ const path = require('path');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const cors = require('cors');
+var SpotifyWebApi = require('spotify-web-api-node');
+
+var clientId = '6aa3ca0c9b964a70830005632cc51605',
+    clientSecret = '4ec2bead74944707af6c0e7a05ada5a9';
+
+var spotifyApi = new SpotifyWebApi({
+  clientId : clientId,
+  clientSecret : clientSecret
+});
+
+// Retrieve an access token.
+spotifyApi.clientCredentialsGrant()
+  .then(function(data) {
+    spotifyApi.setAccessToken(data.body['access_token']);
+  }, function(err) {
+    console.log('Something went wrong when retrieving an access token', err);
+});
 
 const { DBURL } = process.env;
 mongoose.Promise = Promise;
@@ -85,8 +102,10 @@ app.locals.title = 'Express - Generated with IronGenerator';
 const authRouter = require('./routes/auth');
 const genericCrud = require('./routes/genericCRUD');
 const artistRouter = require('./routes/artist');
+const spotifyRouter = require('./routes/spotify')
 app.use('/api/auth', authRouter);
 app.use('/api/artist', artistRouter);
+app.use('api/spotify',spotifyRouter)
 // app.use('/api/news', genericCrud(require('./models/News')));
 app.use('/api/user', genericCrud(require('./models/User')));
 
