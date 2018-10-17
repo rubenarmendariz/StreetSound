@@ -193,6 +193,9 @@ class NavBar extends React.Component {
               <Typography className={classes.title} variant="h6" color="inherit" noWrap>
                 <Link to='/musicos'>Musicos</Link>
               </Typography>
+              {/* <Typography className={classes.title} variant="h6" color="inherit" noWrap>
+                <Link to='/similar'>spotify</Link>
+              </Typography> */}
               <div className={classes.grow} />
               <div className={classes.sectionDesktop}>
                 <IconButton color="inherit">
