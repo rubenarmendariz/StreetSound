@@ -66,25 +66,29 @@ class User extends Component {
        
   
            <form onSubmit={this.handleFormSubmit}>
-          <fieldset>
-            <label>genero:</label>
-            <input type="text" name="genero" value={this.state.genero} onChange={e => this.handleChange(e)} />
+           <fieldset class="form-group">
+  <label for="dcr">eeeeeeeee :</label>
+  <input type="text" name="description" class="form-control" id="dcr" value={this.state.description} onChange={e => this.handleChange(e)}/>
+        </fieldset>
+          <fieldset class="form-group">
+            <label for='gnr'>pepe:</label>
+            <input type="text" name="genero" id='gnr' value={this.state.genero} onChange={e => this.handleChange(e)} />
           </fieldset>
 
-          <fieldset>
-            <label>name:</label>
-            <input type="text" name="name" value={this.state.name} onChange={e => this.handleChange(e)} />
+          <fieldset class="form-group">
+            <label for='name'>name:</label>
+            <input type="text" class="form-group" id="name" name="name" value={this.state.name} onChange={e => this.handleChange(e)} />
           </fieldset>
   
   
-          <fieldset>
-            <label>username:</label>
-            <input type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
+          <fieldset class="form-group">
+            <label for ='username'>username:</label>
+            <input type="text" id='username' class="form-group" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
           </fieldset>
 
-          <fieldset>
-            <label>email:</label>
-            <input type="text" name="email" value={this.state.email} onChange={e => this.handleChange(e)} />
+          <fieldset class="form-group">
+            <label for='email'>pepe:</label>
+            <input type="text" id= 'email'name="email" class="form-group" value={this.state.email} onChange={e => this.handleChange(e)} />
           </fieldset>
           
          

@@ -12,8 +12,7 @@ class Show extends Component {
     super(props);
     this.state = {
       title: '',
-      day: '',
-      month: '',
+      date:'',
       hour: '',
       latitude: 0,
       longitude: 0,
@@ -34,8 +33,7 @@ class Show extends Component {
     event.preventDefault();
 
     const title = this.state.title;
-    const day = this.state.day;
-    const month = this.state.month;
+    const date = this.state.date;
     const hour = this.state.hour;
     const latitude = this.state.latitude;
     const longitude = this.state.longitude;
@@ -45,12 +43,11 @@ class Show extends Component {
 
     this.socket.emit('show');
 
-    this.route.newShow(title, day, month, hour, latitude, longitude, description, genero)
+    this.route.newShow(title, date, hour, latitude, longitude, description, genero)
       .then(response => {
         this.setState({
           title: "",
-          day: "",
-          month: "",
+          date:null,
           hour: "",
           latitude: null,
           longitude: null,
@@ -119,7 +116,7 @@ render() {
 
 
     <form onSubmit={this.handleFormSubmit}>
-      <fieldset>
+      {/* <fieldset>
         <label>genero:</label>
         <input type="text" name="genero" value={this.state.genero} onChange={e => this.handleChange(e)} />
       </fieldset>
@@ -127,7 +124,25 @@ render() {
       <fieldset>
         <label>description:</label>
         <input type="text" name="description" value={this.state.description} onChange={e => this.handleChange(e)} />
-      </fieldset>
+      </fieldset> */}
+<fieldset class="form-group">
+  <label for="date">date:</label>
+  <input type="date"name="date" class="form-control" id="date" value={this.state.date} onChange={e => this.handleChange(e)}/>
+     </fieldset>
+
+       <fieldset class="form-group">
+  <label for="tit">genero:</label>
+  <input type="text"name="genero" class="form-control" id="tit" value={this.state.genero} onChange={e => this.handleChange(e)}/>
+     </fieldset>
+         <fieldset class="form-group">
+  <label for="usr">title:</label>
+  <input type="text"name="title" class="form-control" id="usr" value={this.state.description} onChange={e => this.handleChange(e)}/>
+     </fieldset>
+       <fieldset class="form-group">
+  <label for="dcr">description :</label>
+  <input type="text" name="description" class="form-control" id="dcr" value={this.state.description} onChange={e => this.handleChange(e)}/>
+        </fieldset>
+      
       <fieldset>
         <label>Address</label>
 

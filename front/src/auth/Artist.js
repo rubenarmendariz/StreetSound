@@ -8,9 +8,9 @@ class Artist {
         })
     }
 
-    newShow = (title, day, month, hour, latitude,longitude, description, genero) => {
-        console.log(description)
-        return this.route.post('/show-creation', {title, day, month, hour, latitude, longitude, description,genero})
+    newShow = (title, date, hour, latitude,longitude, description, genero) => {
+        console.log(date)
+        return this.route.post('/show-creation', {title, date, hour, latitude, longitude, description,genero})
         .then(response => response.data)
       }
 

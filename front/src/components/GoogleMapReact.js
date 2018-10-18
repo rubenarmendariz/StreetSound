@@ -70,7 +70,7 @@ class SimpleMap extends Component {
   return (
     // console.log(this.defaultProps)
     // Important! Always set the container height explicitly
-    <div style={{ height: '100vh', width: '100%' }}>
+    <div style={{ height: '50vh', width: '100%' }}>
          
          {console.log(this.state.lat)}
         <GoogleMapReact

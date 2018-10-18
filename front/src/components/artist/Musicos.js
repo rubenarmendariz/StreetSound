@@ -40,8 +40,10 @@ export default class Musicos extends Component {
 
 
     search(val) {
-        let copy= this.S
+        console.log(val)
+        // let copy= this.S
         let filter = this.state.showList.filter(e => {
+            console.log(e.genero)
             return e.genero.toLowerCase().includes(val.toLowerCase());
         });
         this.setState({ showList: filter });
