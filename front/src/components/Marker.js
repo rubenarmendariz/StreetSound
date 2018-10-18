@@ -8,6 +8,6 @@ export const Marker = props => {
     // // ES5 users
     // function _onClick(obj){ console.log(obj.x, obj.y, obj.lat, obj.lng, obj.event);}
     //console.log(props)
-    return <div   className="Marker"><img src='http://maps.google.com/mapfiles/ms/icons/red-dot.png' alt="ALT"/>
+    return <div   className="Marker"><img src='https://files.slack.com/files-tmb/T02CQ4EN4-FDGGG4GRM-eace7e122a/imagen_de_ios_720.jpg'style={{with:"20px" ,height:"40px"}} alt="ALT"/>
             </div>
   }

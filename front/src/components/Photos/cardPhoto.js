@@ -22,13 +22,11 @@ class CardPhoto extends Component {
   render() {
     
     return (
-      <div className="Home">
-        <h2>Home</h2>
-        <p>This is a sample project with the MERN stack</p>
+      <div className="form-group">
         
         <form onSubmit={(e)=>this.handleSubmit(e)}>
           <input type="file" onChange={(e)=>this.handleChange(e)} /> <br/>
-          <button type="submit">Save new profile picture</button>
+          <button  class="button is-success"  type="submit">Save new profile picture</button>
         </form>
       </div>
     );

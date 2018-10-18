@@ -85,8 +85,7 @@ router.post('/profile/:id/edit', ensureAuthenticated, (req, res, next) => {
 router.post('/show-creation', uploadCloud.single('photo'), (req, res, next) => {
   const {
     title,
-    day,
-    month,
+    date,
     hour,
     latitude,
     longitude,
@@ -101,8 +100,7 @@ router.post('/show-creation', uploadCloud.single('photo'), (req, res, next) => {
   const newShow = new Show({
     title,
     user,
-    day,
-    month,
+    date,
     hour,
     PicProfilePath,
     PicProfileName,

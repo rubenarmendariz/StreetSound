@@ -26,7 +26,7 @@ class PhotoList extends Component {
       <div className="Home">
         
         <p>listado de foto</p>
-        {this.props.addPhoto.map(photo => <CardPhotoList {...photo} key={photo._id} url={photo} />)}
+        {/* {this.props.addPhoto.map(photo => <CardPhotoList {...photo} key={photo._id} url={photo} />)} */}
         <form onSubmit={(e)=>this.handleSubmit(e)}>
           <input type="file" onChange={(e)=>this.handleChange(e)} /> <br/>
           <button type="submit">Save new picture</button>

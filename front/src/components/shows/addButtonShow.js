@@ -28,7 +28,7 @@ const styles = theme => ({
 function FloatingActionButtons(props) {
   var el = document.getElementsByClassName('modal')
   const { classes } = props;
-  var el = document.getElementsByClassName('modal')
+  
   return (
     <div>
       {/* <Button variant="fab" color="primary" aria-label="Add" className={classes.button}>

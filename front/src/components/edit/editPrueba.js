@@ -5,6 +5,8 @@ import EditButton from './editButton';
 // import EditButton from '../components/editButton';
 import AddPhotoPrueba from '../AddPhotoPrueba';
 import Map from '../GoogleMapReact';
+import CardPhoto from '../Photos/cardPhoto';
+
 
 
 class User extends Component {
@@ -66,7 +68,7 @@ class User extends Component {
        
   
            <form onSubmit={this.handleFormSubmit}>
-          <fieldset>
+          {/* <fieldset>
             <label>genero:</label>
             <input type="text" name="genero" value={this.state.genero} onChange={e => this.handleChange(e)} />
           </fieldset>
@@ -85,7 +87,28 @@ class User extends Component {
           <fieldset>
             <label>email:</label>
             <input type="text" name="email" value={this.state.email} onChange={e => this.handleChange(e)} />
-          </fieldset>
+          </fieldset> */}
+
+          <fieldset class="form-group">
+  <label for="username">username:</label>
+  <input type="text"name="username" class="form-control" id="username" value={this.state.username} onChange={e => this.handleChange(e)}/>
+     </fieldset>
+
+       <fieldset class="form-group">
+  <label for="gnr">genero:</label>
+  <input type="text"name="genero" class="form-control" id="gnr" value={this.state.genero} onChange={e => this.handleChange(e)}/>
+     </fieldset>
+         <fieldset class="form-group">
+  <label for="name">title:</label>
+  <input type="text"name="name" class="form-control" id="usr" value={this.state.name} onChange={e => this.handleChange(e)}/>
+     </fieldset>
+       <fieldset class="form-group">
+  <label for="email">email :</label>
+  <input type="text" name="email" class="form-control" id="email" value={this.state.description} onChange={e => this.handleChange(e)}/>
+        </fieldset>
+        <fieldset>
+    <CardPhoto></CardPhoto>
+        </fieldset>
           
          
         <footer className="modal-card-foot">

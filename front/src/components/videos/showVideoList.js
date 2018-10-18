@@ -5,7 +5,7 @@ import AuthService from '../../auth/AuthService';
 
 
 
-export default class VideoList extends React.Component {
+export default class ShowVideoList extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -33,11 +33,11 @@ export default class VideoList extends React.Component {
 
 
             <div>
-                {/* {this.props.addVideo.map(video => <CardVideo {...video} key={video._id} url={video} />)} */}
-                <form onSubmit={this.createNewVideo}>
+                {this.props.addVideo.map(video => <CardVideo {...video} key={video._id} url={video} />)}
+                {/* <form onSubmit={this.createNewVideo}>
                     <div><button type="submit">Submit</button></div>
                     <input type="text" name="linkVideo" onChange={e => this.setState({ url: e.currentTarget.value })} />
-                </form>
+                </form> */}
             </div>
         )
     }
