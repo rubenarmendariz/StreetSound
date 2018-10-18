@@ -22,6 +22,8 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 const styles = theme => ({
   root: {
     width: '100%',
+    
+    
   },
   grow: {
     flexGrow: 1,
@@ -80,6 +82,7 @@ const styles = theme => ({
     [theme.breakpoints.up('md')]: {
       display: 'flex',
     },
+    
   },
   sectionMobile: {
     display: 'flex',
@@ -184,14 +187,14 @@ class NavBar extends React.Component {
       );
 
       return (
-        <div className={classes.root}>
-          <AppBar position="static">
+        <div className={classes.root} >
+          <AppBar position="static" className="navBarColor ">
             <Toolbar>
-              <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-                <Link to='/'>BiBuK</Link>
+              <Typography className={classes.title}  variant="h6" color="inherit" noWrap>
+                <Link to='/' className="textNav">BiBuK</Link>
               </Typography>
               <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-                <Link to='/musicos'>Musicos</Link>
+                <Link to='/musicos' className="textNav">Musicos</Link>
               </Typography>
               {/* <Typography className={classes.title} variant="h6" color="inherit" noWrap>
                 <Link to='/similar'>spotify</Link>
@@ -274,14 +277,14 @@ class NavBar extends React.Component {
         </Menu>
       );
       return (
-        <div className={classes.root}>
-          <AppBar position="static">
+        <div className={classes.root} navBarColor>
+          <AppBar position="fixed">
             <Toolbar>
-              <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-                BiBuK
+              <Typography className={classes.title}  variant="h6" color="inherit" noWrap>
+              <Link to='/' className="textNav">BiBuK</Link>
             </Typography>
               <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-                <Link to='/musicos'>Musicos</Link>
+                <Link to='/musicos' className="textNav">Musicos</Link>
               </Typography>
               <div className={classes.grow} />
               <div className={classes.sectionDesktop}>

@@ -39,7 +39,7 @@ export default class Profile extends React.Component {
         return (
             this.state.user ? 
             <div>
-                <img src={this.state.user.PicProfilePath} alt="foto de perfil" />
+                <img width="300" height="300" src={this.state.user.PicProfilePath} alt="foto de perfil" />
                 <h1>Este es el perfil del artistaaaaa {this.state.user.username}</h1>
                 <VideoList {...this.state.user} /><p>add video</p>
                 <PhotoList {...this.state.user} /><p>add photo list</p>

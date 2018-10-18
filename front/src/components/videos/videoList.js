@@ -39,7 +39,7 @@ export default class VideoList extends React.Component {
 
 
     render() {
-        debugger
+        
 
         return (
 
