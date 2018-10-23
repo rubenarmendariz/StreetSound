@@ -41,7 +41,7 @@ function FloatingActionButtons(props) {
         <div class="modal-background"></div>
         <div class="modal-card">
           <header class="modal-card-head">
-            <p class="modal-card-title">Create new SHOW</p>
+            <p class="modal-card-title">añadir videos de youtube</p>
             <button onClick={()=>el[3].classList.toggle('is-active')} class="delete" aria-label="close"></button>
           </header>
           <section class="modal-card-body">

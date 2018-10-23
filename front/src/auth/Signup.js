@@ -53,44 +53,47 @@ class Signup extends Component {
 
   render() {
     return (
-      <Grid
-      container
-    alignItems = "center"
-    justify = "center"
-    direction = "column"
-      >
 
-      <h3>Welcome!, create your account next:</h3>
+      <div className="styleLogin" >
+        <Grid
+          container
+          alignItems="center"
+          justify="center"
+          direction="column"
+          style={{ height: "60vh", fontSize:"20px"}}
+        >
+          <h3>Regístrate!</h3>
 
-    {/* <form onSubmit={this.handleFormSubmit}>  */}
+          {/* <form onSubmit={this.handleFormSubmit}>  */}
 
-     <FormControl onSubmit={this.handleFormSubmit}>
-      <InputLabel >Username:</InputLabel>
-      <Input type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
-    </FormControl>
+          
 
-    <FormControl>
-      <InputLabel>Password</InputLabel>
-      <Input type="password" name="password" value={this.state.password} onChange={e => this.handleChange(e)}
-        id="custom-css-input"/>
-         </FormControl>
+          <FormControl onSubmit={this.handleFormSubmit} style={{ size: "20" }}>
+            <InputLabel >Username:</InputLabel>
+            <Input type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
+          </FormControl>
 
-      <FormControl>
-      <InputLabel>Email</InputLabel>
-      <Input type="email" name="email" value={this.state.email} onChange={e => this.handleChange(e)} />
-      </FormControl>
+          <FormControl >
+            <InputLabel>Password</InputLabel>
+            <Input type="password" name="password" value={this.state.password} onChange={e => this.handleChange(e)}
+              id="custom-css-input" />
+          </FormControl>
 
-      <FormControl>
-      <input type="checkbox" name="isArtist" value={true} onClick={e => this.handleChange(e)} />Is artist?
-      </FormControl>
+          <FormControl>
+            <InputLabel >Email</InputLabel>
+            <Input type="email" name="email" value={this.state.email} onChange={e => this.handleChange(e)} />
+          </FormControl>
 
-      <Button type="submit" value="Login" onClick={this.handleFormSubmit}color="primary"> Sign Up </Button>
-        {/* <input type="submit" value="Sign up" /> */}
-    
-         
-        
-       </Grid>
-          )
+          <FormControl>
+            <input type="checkbox" name="isArtist" value={true} onClick={e => this.handleChange(e)} /> <span>Is artist?</span>
+          </FormControl>
+
+          <Button type="submit" value="Login" onClick={this.handleFormSubmit} color="primary"> Sign Up </Button>
+          {/* <input type="submit" value="Sign up" />  */}
+        </Grid>
+      </div>
+
+    )
 
   }
 

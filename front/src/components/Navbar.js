@@ -188,7 +188,7 @@ class NavBar extends React.Component {
 
       return (
         <div className={classes.root} >
-          <AppBar position="static" className="navBarColor ">
+          <AppBar position="fixed" className="navBarColor ">
             <Toolbar>
               <Typography className={classes.title}  variant="h6" color="inherit" noWrap>
                 <Link to='/' className="textNav">BiBuK</Link>
@@ -277,8 +277,8 @@ class NavBar extends React.Component {
         </Menu>
       );
       return (
-        <div className={classes.root} navBarColor>
-          <AppBar position="fixed">
+        <div className={classes.root}>
+          <AppBar position="fixed" className="navBarColor">
             <Toolbar>
               <Typography className={classes.title}  variant="h6" color="inherit" noWrap>
               <Link to='/' className="textNav">BiBuK</Link>

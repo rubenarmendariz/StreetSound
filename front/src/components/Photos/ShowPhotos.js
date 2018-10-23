@@ -23,7 +23,7 @@ class PhotoList extends Component {
   render() {
     
     return (
-      <div className="Home">
+      <div className="profile-component ">
         
         <p>listado de foto</p>
         {this.props.addPhoto.map(photo => <CardPhotoList {...photo} key={photo._id} url={photo} />)}

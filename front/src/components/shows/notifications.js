@@ -48,4 +48,5 @@ export class Chat extends React.Component{
 //             </div>
 //             )
 //     }
-// }
+}
+

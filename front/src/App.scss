@@ -157,30 +157,49 @@
 
 
 html {
-  background-color: black !important;
   height: 100%;
   padding: 0;
   margin: 0;
+  
+}
+
+.app-content {
+  margin-top: 64px;
+ 
+}
+
+.map-container {
+  height: 87vh;
 }
 body {
-  height: 100%;
-  background-color: black !important;
+  height: 100vh !important;
+  max-height: 100vh;
+  // background-color: black !important;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 0;
   margin: 0;
-
+  
+}
   .navBarColor {
    background-color: #515254 !important;
-   position: fixed;
+    
+   //position: fixed;
   }
   .textNav {
     color:#fff;
     margin : 10px; 
     text-decoration: none;
+    font-size: 25px;
+    
+  }
+.styleLogin {
+position: relative;
+top: 200px;
+font-size: 20px;
+
 
   }
-}
 .App-link {
   
   text-decoration: none;
@@ -197,3 +216,29 @@ body {
     transform: rotate(360deg);
   }
 }
+.container {
+  width: 100% !important;
+  max-width: initial !important;
+  padding: 0 !important;
+  height: 87vh;
+}
+
+.root {
+ height: 100%; 
+}
+
+.artist {
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+.col-4 {
+  padding-left: 41px !important;
+}
+
+.list-group-item.active {
+  background-color: #515254 !important;
+    border-color: #515254 !important;
+    font-size: 15px !important;
+}
+

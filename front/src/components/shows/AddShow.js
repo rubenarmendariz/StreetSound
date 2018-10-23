@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
-// import SimpleMap from './../GoogleMapReact';
-// import AuthService from '../auth/AuthService';
-import SimpleMap from '../GoogleMapReact'
+import SimpleMap from '../maps/GoogleMapReact'
 import Artist from '../../auth/Artist';
 import * as Push from 'push.js'
 
@@ -136,7 +133,7 @@ render() {
      </fieldset>
          <fieldset class="form-group">
   <label for="usr">title:</label>
-  <input type="text"name="title" class="form-control" id="usr" value={this.state.description} onChange={e => this.handleChange(e)}/>
+  <input type="text"name="title" class="form-control" id="usr" value={this.state.title} onChange={e => this.handleChange(e)}/>
      </fieldset>
        <fieldset class="form-group">
   <label for="dcr">description :</label>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
-import { Switch, Route, Redirect} from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Profile from './sections/Profile';
 import MyProfile from './sections/myProfile';
 // import ProjectList from './components/projects/ProjectList';
@@ -16,13 +16,13 @@ import Spotify from './sections/Spotify'
 
 class App extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = { loggedInUser: null };
     this.service = new AuthService();
   }
 
-  getTheUser= (userObj) => {
+  getTheUser = (userObj) => {
     this.setState({
       loggedInUser: userObj
     })
@@ -30,65 +30,65 @@ class App extends Component {
 
   logout = () => {
     this.service.logout()
-    .then(() => {
-      this.setState({ loggedInUser: null });
-    })
+      .then(() => {
+        this.setState({ loggedInUser: null });
+      })
   }
 
-  fetchUser(){
-    if( this.state.loggedInUser === null ){
+  fetchUser() {
+    if (this.state.loggedInUser === null) {
       this.service.loggedin()
-      .then(response =>{
-        this.setState({
-          loggedInUser:  response
-        }) 
-      })
-      .catch( err =>{
-        this.setState({
-          loggedInUser:  false
-        }) 
-      })
+        .then(response => {
+          this.setState({
+            loggedInUser: response
+          })
+        })
+        .catch(err => {
+          this.setState({
+            loggedInUser: false
+          })
+        })
     }
   }
 
   render() {
     this.fetchUser()
 
-    if(this.state.loggedInUser){
+    if (this.state.loggedInUser) {
       return (
         <div className="App">
           <header className="App-header">
             <Navbar userInSession={this.state.loggedInUser} logout={this.logout} />
           </header>
-            <Route exact path='/musicos' render={() => <Musicos  userInSession={this.state.loggedInUser} getUser={this.getTheUser}/>}/>
-            <Route exact path='/myProfile' render={() => <MyProfile userInSession={this.state.loggedInUser} getUser={this.getTheUser}/>}/>
-            <Route exact path="/profile/:id" component={Profile} ></Route>
-            <Route exact path='/' render={() => <HomePage getUser={this.getTheUser}/>}/> 
-            <Route exact path ='/login' render = {() => <Redirect to = "/" getUser={this.getTheUser}/>}/>
-            <Route exact path ='/signup' render = {() => <Redirect to = "/" getUser={this.getTheUser}/>}/>
-            {/* <Contents></Contents> */}
-           
+          <div className="app-content">
+          <Route exact path='/musicos' render={() => <Musicos userInSession={this.state.loggedInUser} getUser={this.getTheUser} />} />
+          <Route exact path='/myProfile' render={() => <MyProfile userInSession={this.state.loggedInUser} getUser={this.getTheUser} />} />
+          <Route exact path="/profile/:id" component={Profile} ></Route>
+          <Route exact path='/' render={() => <HomePage getUser={this.getTheUser} />} />
+          <Route exact path='/login' render={() => <Redirect to="/" getUser={this.getTheUser} />} />
+          <Route exact path='/signup' render={() => <Redirect to="/" getUser={this.getTheUser} />} />
+          {/* <Contents></Contents> */}
+          </div>
+
         </div>
       );
     } else {
       return (
         <div className="App">
-            
-           
-          
           <header className="App-header">
-          <Navbar /> 
+            <Navbar />
           </header>
-            <Switch>
-              <Route path='/similar' render={() => <Spotify getUser={this.getTheUser}/>}/>
-              <Route exact path='/' render={() => <HomePage getUser={this.getTheUser}/>}/>
-              <Route exact path='/musicos' render={() => <Musicos getUser={this.getTheUser}/>}/> 
-              <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser}/>}/>
-              <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/>
-              <Route exact path ='/profile' render = {() => <Redirect to = "/" getUser={this.getTheUser}/>}/>
-              {/* <Route path="/profile" render={() => <Profile getUser={this.getTheUser}/>} ></Route> */}
-            </Switch>
-        
+          <div className="app-content">
+          <Switch>
+            <Route path='/similar' render={() => <Spotify getUser={this.getTheUser} />} />
+            <Route exact path='/' render={() => <HomePage getUser={this.getTheUser} />} />
+            <Route exact path='/musicos' render={() => <Musicos getUser={this.getTheUser} />} />
+            <Route exact path='/signup' render={() => <Signup getUser={this.getTheUser} />} />
+            <Route exact path='/login' render={() => <Login getUser={this.getTheUser} />} />
+            <Route exact path='/profile' render={() => <Redirect to="/" getUser={this.getTheUser} />} />
+            {/* <Route path="/profile" render={() => <Profile getUser={this.getTheUser}/>} ></Route> */}
+          </Switch>
+          </div>
         </div>
       );
     }
