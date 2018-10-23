@@ -34,7 +34,7 @@ function FloatingActionButtons(props) {
         <AddIcon />
       </Button> */}
   
-      <Button onClick ={()=>el[3].classList.toggle('is-active')}  variant="fab" color="primary" aria-label="Add" className={classes.button}>
+      <Button onClick ={()=>el[2].classList.toggle('is-active')}  variant="fab" color="primary" aria-label="Add" className={classes.button}>
         <AddIcon />
       </Button>
       <div class="modal">
@@ -42,18 +42,13 @@ function FloatingActionButtons(props) {
         <div class="modal-card">
           <header class="modal-card-head">
             <p class="modal-card-title">añadir videos de youtube</p>
-            <button onClick={()=>el[3].classList.toggle('is-active')} class="delete" aria-label="close"></button>
+            <button onClick={()=>el[2].classList.toggle('is-active')} class="delete" aria-label="close"></button>
           </header>
           <section class="modal-card-body">
-          <VideoList></VideoList>
-          
-        
+          <VideoList AddVideo={(newVideoList) => props.pepe(newVideoList)}></VideoList>
           </section>
-        
         </div>
       </div>
-        
-         
     </div>
   );
 }

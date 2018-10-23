@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import ShowPhotos from'../components/Photos/ShowPhotos';
+import ShowPhotos from '../components/Photos/ShowPhotos';
 import ShowVideoList from '../components/videos/showVideoList'
 
 
@@ -35,23 +35,17 @@ export default class Profile extends React.Component {
         return (
             this.state.user ?
 
-            <div className="container-Profile">
-            <div className="profile-component">
-                     <img width="300" height="300" src={this.state.user.PicProfilePath} alt="foto de perfil" />
-                     <h1>Este es el perfil del artistaaaaa {this.state.user.username}</h1>
-            <ShowPhotos {...this.state.user}></ShowPhotos>
-            <ShowVideoList {...this.state.user} /><p>add video</p>
+                <div className="container-Profile">
+                    <div className="profile-component">
+                        <div className="name-profile"><img width="300" height="300" className="Profile-photo" src={this.state.user.PicProfilePath} alt="foto de perfil" />
+                            <h1 className="artist">{this.state.user.username}</h1></div>
+                        <h1>Fotos</h1>
+                        <ShowPhotos  {...this.state.user}></ShowPhotos>
+                        <h1>Videos</h1>
+                        <ShowVideoList className='video-holder' {...this.state.user} />
 
-                {/* <div className="profile-component">
-                     <img width="300" height="300" src={this.state.user.PicProfilePath} alt="foto de perfil" />
-                     <h1>Este es el perfil del artistaaaaa {this.state.user.username}</h1>
-                    <VideoList {...this.state.user} /><p>add video</p>
-                     <PhotoList {...this.state.user} /><p>add photo list</p>
-                     <CardPhoto {...this.state.user} /> */}
-                    {/* <User/>
-                <SingleProfile {...this.state.user}/>   */}
-            </div>
-            </div>
+                    </div>
+                </div>
                 : <p>Loading...</p>
         )
     }

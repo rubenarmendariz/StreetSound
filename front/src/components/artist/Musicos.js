@@ -57,7 +57,7 @@ export default class Musicos extends Component {
                         />
                     </span>
                     <div className="row map-container">
-                        <div className="col-4 pre-scrollable" style={{ maxHeight: "93vh" }}>
+                        <div className="col-4 pre-scrollable" style={{ maxHeight: "96vh" }}>
 
                             {this.state.showList.map(show => <SingleShow userInSession={this.props.userInSession}{...show} key={show._id}></SingleShow>)}
 

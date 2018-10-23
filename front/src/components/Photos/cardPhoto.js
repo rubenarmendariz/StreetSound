@@ -35,27 +35,3 @@ class CardPhoto extends Component {
 
 export default CardPhoto;
 
-
-// import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
-
-
-// export default class CardPhoto extends Component {
-   
-
-//     render() {
-//         let {addPhoto, _id} = this.props;
-//         let route = `/profile/${_id}`;
-//         return(
-//             <div>
-//                 <Link to={route}>{addPhoto}<img src={image_url} alt={name} className="beer-img mx-3"></img></Link>
-                
-               
-                   
-                   
-
-               
-//             </div>
-//         )
-//     }
-// }

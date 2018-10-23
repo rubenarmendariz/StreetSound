@@ -54,6 +54,7 @@ class Login extends Component {
           alignItems="center"
           justify="center"
           direction="column"
+          height="400px"
         >
           <h3>Iniciar Sesión</h3>
 

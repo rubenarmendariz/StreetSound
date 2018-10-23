@@ -1,7 +1,7 @@
 import React from 'react';
 import { CardVideo } from './cardVideo';
 import AuthService from '../../auth/AuthService';
-
+import '../../sections/MyProfile.scss';
 
 
 
@@ -32,7 +32,7 @@ export default class ShowVideoList extends React.Component {
         return (
 
 
-            <div>
+            <div className="photo-list">
                 {this.props.addVideo.map(video => <CardVideo {...video} key={video._id} url={video} />)}
                 {/* <form onSubmit={this.createNewVideo}>
                     <div><button type="submit">Submit</button></div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ApiList from './apiList';
 import { CardPhotoList } from './cardPhotoList';
+import '../../sections/MyProfile.scss';
 
 class PhotoList extends Component {
   constructor(props) {
@@ -23,14 +24,12 @@ class PhotoList extends Component {
   render() {
     
     return (
-      <div className="profile-component ">
+      <div className="profile-component">
         
-        <p>listado de foto</p>
+        
+        <div className="photo-list">
         {this.props.addPhoto.map(photo => <CardPhotoList {...photo} key={photo._id} url={photo} />)}
-        {/* <form onSubmit={(e)=>this.handleSubmit(e)}>
-          <input type="file" onChange={(e)=>this.handleChange(e)} /> <br/>
-          <button type="submit">Save new picture</button>
-        </form> */}
+        </div>
       </div>
     );
   }

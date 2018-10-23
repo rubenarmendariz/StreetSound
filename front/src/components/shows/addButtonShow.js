@@ -30,7 +30,7 @@ function FloatingActionButtons(props) {
   const { classes } = props;
   
   return (
-    <div>
+    <div className="color-buttons"> 
       {/* <Button variant="fab" color="primary" aria-label="Add" className={classes.button}>
         <AddIcon />
       </Button> */}

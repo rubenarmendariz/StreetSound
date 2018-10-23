@@ -181,7 +181,7 @@ class NavBar extends React.Component {
             <IconButton color="inherit">
               <AccountCircle />
             </IconButton>
-            <Link to={'/myProfile'}><p>Profile</p></Link>
+            <Link to={'/myProfile'}><p style= {{color:"red"}}>Profile</p></Link>
           </MenuItem>
         </Menu>
       );
@@ -245,8 +245,8 @@ class NavBar extends React.Component {
           open={isMenuOpen}
           onClose={this.handleMenuClose}
         >
-          <MenuItem onClick={this.handleClose}><Link to='/signup'>SignUp</Link></MenuItem>
-          <MenuItem onClick={this.handleClose}><Link to='/Login'>Login</Link></MenuItem>
+          <MenuItem onClick={this.handleClose}><Link to='/signup' className='login-signup'>SignUp</Link></MenuItem>
+          <MenuItem onClick={this.handleClose}><Link to='/Login' className='login-signup'>Login</Link></MenuItem>
         </Menu>
       );
 

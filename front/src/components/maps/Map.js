@@ -63,6 +63,6 @@ export default class MapContainer extends React.Component {
     }
 
     render() {
-        return <div style={{ width: "80vw", height: "87vh" }} id="map" />;
+        return <div style={{ width: "88vw", height: "96vh" }} id="map" />;
     }
 }

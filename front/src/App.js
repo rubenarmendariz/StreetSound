@@ -50,6 +50,12 @@ class App extends Component {
         })
     }
   }
+  updateVideo(newVideoList) {
+    const _user = {...this.state.loggedInUser};
+    _user.addVideo = newVideoList;
+    this.setState({loggedInUser:_user})
+    console.log(this.state.loggedInUser)
+} 
 
   render() {
     this.fetchUser()
@@ -62,7 +68,7 @@ class App extends Component {
           </header>
           <div className="app-content">
           <Route exact path='/musicos' render={() => <Musicos userInSession={this.state.loggedInUser} getUser={this.getTheUser} />} />
-          <Route exact path='/myProfile' render={() => <MyProfile userInSession={this.state.loggedInUser} getUser={this.getTheUser} />} />
+          <Route exact path='/myProfile' render={() => <MyProfile updateVideo={(newVideoList) => this.updateVideo(newVideoList)}userInSession={this.state.loggedInUser} getUser={this.getTheUser} />} />
           <Route exact path="/profile/:id" component={Profile} ></Route>
           <Route exact path='/' render={() => <HomePage getUser={this.getTheUser} />} />
           <Route exact path='/login' render={() => <Redirect to="/" getUser={this.getTheUser} />} />

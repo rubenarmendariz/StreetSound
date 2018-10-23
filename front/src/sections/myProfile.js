@@ -11,7 +11,7 @@ export default class MyProfile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user:null,
+            user: null,
             videoList: []
         }
     };
@@ -21,10 +21,10 @@ export default class MyProfile extends React.Component {
     }
 
     fetchProfile() {
-
+        console.log("entra")
         axios.get('http://localhost:3000/api/myprofile')
             .then(arr => {
-                this.setState({user: {...arr.data} })
+                this.setState({ user: { ...arr.data } })
             })
             .catch(e => console.log(e));
     };
@@ -33,25 +33,25 @@ export default class MyProfile extends React.Component {
 
 
     render() {
-        console.log(this.props);
+        console.log(this.props.userInSession);
         return (
             // this.state.user ? 
-            <div className="myprofile-component">   
-                <img width="300" height="300"  src={this.props.userInSession.PicProfilePath} alt="foto de perfil" />
-                <h1>Este es mi Perfil {this.props.userInSession.username}</h1>
-                <ShowVideoList {...this.props.userInSession} /><p>add video</p>
-                <ShowPhotos {...this.props.userInSession} /><p>add photo list</p>
-                <AddButton /><p>add Show</p> 
-                <EditButton />
-                <p>add foto</p>
-                <AddButtonPhotos></AddButtonPhotos>
-                <p>add video</p>
-                
-                 <AddButtonVideo></AddButtonVideo>
-                
-
-                <DeleteButton />
+            <div className="container-Profile">
+                <div className="profile-component">
+                <div className="name-profile">
+                <p>Add show</p>
+                <AddButton />
+                <h1>{this.props.userInSession.username}</h1>
+                <img width="300" height="300" src={this.props.userInSession.PicProfilePath} alt="foto de perfil" className=" Profile-photo photo-myprofile" />
+                <h1>{this.props.userInSession.username}</h1><EditButton /><p>Edit button</p>
+                </div>
+                <AddButtonVideo pepe={(newVideoList) => this.props.updateVideo(newVideoList)}/><ShowVideoList {...this.props.userInSession} />
+                <AddButtonPhotos tomas={(newPhotoList) => this.fetchProfile(newPhotoList)}/><ShowPhotos {...this.props.userInSession} />
+            
+            
+           </div>
             </div>
+            
             // : <p>Loading...o queee</p>
         )
     }

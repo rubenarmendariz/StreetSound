@@ -4,13 +4,73 @@
     flex-direction: column;
 }
 .profile-component{
-   flex-direction: row //maquetacion
+   flex-direction: row; //maquetacion
+   color: white;
   }
-.myprofile-component{
-//maquetacion
+
+// .gallery-item {
+//     size:500px;
+//     width: 500px;
+//     border-radius: 20%;
+// }
+
+.photo-holder {
+    display: flex;
+    flex-wrap: wrap;
 }
-.gallery-item {
-    size:500px;
-    width: 500px;
-    border-radius: 20%;
+.photo-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin:20px;
+}
+
+.photo-size {
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+    align-items: center
+   
+}
+.photo-cover {
+    object-fit: cover;  
+}
+.video-list {
+    margin: 20px;
+    align-items: center;  
+}
+
+.Profile-photo {
+    border-radius: 50%;
+    position: relative;
+    
+
+}
+
+.name-profile {
+    display: flex;
+    flex-direction: row;
+    height: 300px;
+    align-items: center;
+    margin-left: 40%;
+}
+.artist {
+    margin-left: 15px;
+    font-size: 60px;
+}
+.photo-myprofile {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+.modal-card-body{
+    color: black
+}
+// .color-buttons {
+//     background-color: #f1c40f;
+// }
+.button.is-primary{
+    background-color: #f1c40f !important; 
+}
+.MuiButton-containedPrimary-137{
+    background-color: #f1c40f !important; 
 }

@@ -31,7 +31,7 @@ const Show = require('../models/Show');
 
 router.get('/musicos', (req, res, next) => {
   Show.find()
-  .populate("user", "username")
+  .populate("user", ["username", "PicProfilePath"])
     .then(shows => {
       res.status(200).json(shows)
     })

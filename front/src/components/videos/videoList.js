@@ -20,6 +20,8 @@ export default class VideoList extends React.Component {
         const video = this.state.url;
         this.service.newVideo(video)
             .then(res => {
+                console.log(res)
+                this.props.AddVideo(res.videos);
             })
     }
 
@@ -27,7 +29,7 @@ export default class VideoList extends React.Component {
 
 
     render() {
-        
+        var el = document.getElementsByClassName('modal')
 
         return (
 
@@ -35,8 +37,12 @@ export default class VideoList extends React.Component {
             <div>
                 {/* {this.props.addVideo.map(video => <CardVideo {...video} key={video._id} url={video} />)} */}
                 <form onSubmit={this.createNewVideo}>
-                    <div><button type="submit">Submit</button></div>
+                    {/* <div><button type="submit">Submit</button></div> */}
                     <input type="text" name="linkVideo" onChange={e => this.setState({ url: e.currentTarget.value })} />
+                    <footer className="modal-card-foot">
+        <button type="submit" value="login" onClick={() => el[2].classList.toggle('is-active')} class="button is-success">Save changes</button>
+        <button onClick={() => el[2].classList.toggle('is-active')} className="button">Cancel</button>
+      </footer>
                 </form>
             </div>
         )
